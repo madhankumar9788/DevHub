@@ -105,7 +105,6 @@ function OrbitingTechCircles() {
             {/* Stylized rounded "P" / "R" */}
             <path d="M35 25h20c12 0 20 8 20 20s-8 20-20 20H45v20H35V25zm10 10v20h10c7 0 11-4 11-10s-4-10-11-10H45z" fill="#ffffff" />
             {/* Leaf accent */}
-            <path d="M58 55c5 0 12 5 12 12s-5 8-12 8c-7 0-9-5-9-12s4-8 9-8z" fill="#818cf8" />
           </svg>
         </div>
       </div>
