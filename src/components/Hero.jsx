@@ -190,16 +190,19 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.2] flex flex-wrap items-center">
-            <span className="mr-3">Create jaw-dropping websites</span>
-            <span className="relative inline-flex items-center w-[240px] sm:w-[300px] lg:w-[360px] h-[1.3em] overflow-hidden text-left">
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.25)] opacity-0">
-                Visually.
+            <span className="mr-3">We Build</span>
+            <span className="relative inline-flex items-center w-[240px] sm:w-[300px] lg:w-[360px] h-[1.3em] overflow-hidden text-left uppercase">
+              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0">
+                <span className="solid-glow-letter text-white" data-text="V">V</span>
+                <span className="outline-glow-text" data-text="ISUALLY.">ISUALLY.</span>
               </span>
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 drop-shadow-[0_0_15px_rgba(251,191,36,0.25)] opacity-0">
-                Fast.
+              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0">
+                <span className="solid-glow-letter text-white" data-text="F">F</span>
+                <span className="outline-glow-text" data-text="AST.">AST.</span>
               </span>
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500 drop-shadow-[0_0_15px_rgba(52,211,153,0.25)] opacity-0">
-                Easily.
+              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0">
+                <span className="solid-glow-letter text-white" data-text="E">E</span>
+                <span className="outline-glow-text" data-text="ASILY.">ASILY.</span>
               </span>
             </span>
           </h1>
