@@ -98,8 +98,7 @@ function TabletMockup() {
             {/* Left copy block */}
             <div className="col-span-7 space-y-4 text-left">
               <h2 style={{ color: "#ffffff" }} className="text-2xl sm:text-3xl font-black leading-tight tracking-tight">
-                Jaw-Dropping<br />
-                Websites
+                Jaw-Dropping  Websites
               </h2>
               <p style={{ color: "#94a3b8" }} className="text-[10px] leading-relaxed font-light">
                 Custom React, WordPress, and Laravel development built to scale.
@@ -190,11 +189,9 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-            Create jaw-dropping
-            <br />
-            websites.
-            <div className="mt-5 relative h-[1.3em] overflow-hidden text-3xl sm:text-4xl lg:text-5xl font-black uppercase flex items-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
+            Create jaw-dropping websites.
+            <div className="mt-6 relative h-[1.3em] overflow-hidden text-4xl sm:text-5xl lg:text-6xl font-black uppercase flex items-center">
               <span className="scrolling-word absolute text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.35)] opacity-0">
                 Visually.
               </span>
