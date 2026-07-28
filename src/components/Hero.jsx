@@ -75,10 +75,10 @@ function TabletMockup() {
           <div className="flex items-center justify-between relative z-20 border-b border-slate-900/80 pb-4">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-blue-500 flex items-center justify-center text-white font-black text-xs">
-                C
+                D
               </div>
               <span style={{ color: "#ffffff" }} className="text-xs font-bold font-mono tracking-tight">
-                cloudpulse
+                DevHub
               </span>
             </div>
 
@@ -89,7 +89,7 @@ function TabletMockup() {
             </div>
 
             <button className="bg-blue-600/90 text-white font-mono text-[9px] font-bold px-2.5 py-1 rounded-md hover:bg-blue-500 transition-colors">
-              $PROPOSAL
+              $Explore More
             </button>
           </div>
 
@@ -98,15 +98,15 @@ function TabletMockup() {
             {/* Left copy block */}
             <div className="col-span-7 space-y-4 text-left">
               <h2 style={{ color: "#ffffff" }} className="text-2xl sm:text-3xl font-black leading-tight tracking-tight">
-                CloudPulse,<br />
-                the Blueprint<br />
-                for tomorrow
+                Future,<br />
+                Ready<br />
+                Products
               </h2>
-              <p style={{ color: "#64748b" }} className="text-[10px] leading-relaxed font-light">
-                Secure, scalable access to computing resources via cloud consulting.
+              <p style={{ color: "#94a3b8" }} className="text-[10px] leading-relaxed font-light">
+                Custom React, WordPress, and Laravel development built to scale.
               </p>
-              <button className="bg-slate-800 hover:bg-slate-700 text-white font-mono text-[9px] px-3 py-1.5 rounded-full border border-slate-700 transition-all">
-                Documentation
+              <button className="bg-blue-600 hover:bg-blue-500 text-white font-mono text-[9px] px-3.5 py-2 rounded-full border border-blue-500 transition-all font-bold">
+                View Showcase
               </button>
             </div>
 
@@ -116,11 +116,6 @@ function TabletMockup() {
             </div>
           </div>
 
-          {/* Bottom Status Bar */}
-          <div className="flex items-center justify-between text-[7px] font-mono border-t border-slate-900/60 pt-3" style={{ color: "#475569" }}>
-            <span>Status: Operational</span>
-            <span>v1.0.4-beta</span>
-          </div>
         </div>
       </div>
     </div>
@@ -128,36 +123,6 @@ function TabletMockup() {
 }
 
 export default function Hero() {
-  const [activeInsects, setActiveInsects] = useState([
-    { id: 1, color: "text-indigo-500/35 hover:text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" },
-    { id: 2, color: "text-cyan-500/35 hover:text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" },
-    { id: 3, color: "text-emerald-500/35 hover:text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]" },
-    { id: 4, color: "text-yellow-500/35 hover:text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]" },
-    { id: 5, color: "text-rose-500/35 hover:text-rose-400 drop-shadow-[0_0_8px_rgba(251,113,133,0.8)]" },
-    { id: 6, color: "text-purple-500/35 hover:text-purple-400 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" },
-    { id: 7, color: "text-orange-500/35 hover:text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.8)]" },
-    { id: 8, color: "text-pink-500/35 hover:text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]" },
-    { id: 9, color: "text-teal-500/35 hover:text-teal-400 drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]" },
-    { id: 10, color: "text-sky-500/35 hover:text-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.8)]" },
-  ]);
-  const insectsRef = useRef([
-    { id: 1, x: 100, y: 150, angle: 45, speed: 0.8 },
-    { id: 2, x: 250, y: 300, angle: 120, speed: 1.1 },
-    { id: 3, x: 400, y: 100, angle: 210, speed: 0.9 },
-    { id: 4, x: 550, y: 450, angle: 330, speed: 1.3 },
-    { id: 5, x: 700, y: 200, angle: 15, speed: 1.0 },
-    { id: 6, x: 120, y: 500, angle: 80, speed: 0.7 },
-    { id: 7, x: 300, y: 600, angle: 160, speed: 1.2 },
-    { id: 8, x: 800, y: 400, angle: 270, speed: 1.0 },
-    { id: 9, x: 450, y: 350, angle: 190, speed: 0.9 },
-    { id: 10, x: 650, y: 550, angle: 290, speed: 1.1 },
-  ]);
-
-  const removeInsect = (id) => {
-    setActiveInsects(prev => prev.filter(bug => bug.id !== id));
-    insectsRef.current = insectsRef.current.filter(item => item.id !== id);
-  };
-
   const scrollTo = (e, id) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -186,78 +151,12 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  // Animation Loop for Insects Crawling
-  useEffect(() => {
-    let frameId;
-    const updatePhysics = () => {
-      const hero = document.getElementById("hero");
-      if (!hero) return;
-      const width = hero.offsetWidth;
-      const height = hero.offsetHeight;
-
-      insectsRef.current.forEach(bug => {
-        const el = document.getElementById(`insect-${bug.id}`);
-        if (!el) return;
-
-        // Random walk pathing
-        bug.angle += (Math.random() - 0.5) * 15; // smooth turn adjustment
-        const rad = (bug.angle * Math.PI) / 180;
-        bug.x += Math.cos(rad) * bug.speed;
-        bug.y += Math.sin(rad) * bug.speed;
-
-        // Wrap around edge boundaries
-        if (bug.x < -30) bug.x = width + 30;
-        if (bug.x > width + 30) bug.x = -30;
-        if (bug.y < -30) bug.y = height + 30;
-        if (bug.y > height + 30) bug.y = -30;
-
-        // Direct DOM update for performance (bypasses React render bottlenecks)
-        el.style.transform = `translate3d(${bug.x}px, ${bug.y}px, 0) rotate(${bug.angle + 90}deg)`;
-      });
-
-      frameId = requestAnimationFrame(updatePhysics);
-    };
-
-    frameId = requestAnimationFrame(updatePhysics);
-    return () => cancelAnimationFrame(frameId);
-  }, [activeInsects]);
-
   return (
     <section
       id="hero"
       style={{ colorScheme: "dark" }}
       className="bg-[#0b0f19] pt-32 pb-28 px-6 md:px-10 relative overflow-hidden border-b border-slate-950 flex items-center justify-center min-h-[90vh]"
     >
-      {/* Interactive Crawling Insects Container */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
-        {activeInsects.map((bug) => (
-          <div
-            key={bug.id}
-            id={`insect-${bug.id}`}
-            onClick={() => removeInsect(bug.id)}
-            className="absolute w-7 h-7 pointer-events-auto cursor-crosshair group active:scale-75 transition-all duration-300"
-            style={{ left: 0, top: 0, transform: "translate(-100px, -100px)" }}
-            title="Click to Squash!"
-          >
-            {/* Insect Body SVG */}
-            <svg
-              className={`w-full h-full ${bug.color} transition-colors`}
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              {/* Antennae */}
-              <path d="M10 4C10 2 11 1 12 1M14 4C14 2 13 1 12 1" stroke="currentColor" strokeWidth="1" fill="none" />
-              {/* Legs */}
-              <path d="M6 9h12M4 13h16M6 17h12" stroke="currentColor" strokeWidth="1.5" />
-              {/* Main Shell/Body */}
-              <rect x="9" y="5" width="6" height="13" rx="3" />
-              {/* Head */}
-              <circle cx="12" cy="3.5" r="2" />
-            </svg>
-          </div>
-        ))}
-      </div>
-
       {/* Glowing light lines (Reference layout) */}
       <div className="absolute top-[-20%] left-[30%] w-16 h-[160%] bg-white/20 blur-2xl rotate-[35deg] origin-top pointer-events-none z-10" />
       <div className="absolute top-[-20%] left-[30%] w-4 h-[160%] bg-white/40 blur-lg rotate-[35deg] origin-top pointer-events-none z-10" />
@@ -274,33 +173,33 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 bg-indigo-950/50 border border-indigo-500/30 px-4 py-1.5 rounded-full">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
             <span className="text-indigo-200 text-xs font-mono uppercase tracking-widest font-bold">
-              Engineering Future Scale
+              Creative Digital Agency
             </span>
           </div>
 
-          <h1 className="text-6xl lg:text-8xl font-black uppercase leading-[0.85]">
+          <h1 className="text-6xl lg:text-8xl font-black uppercase leading-[0.85] font-gothic text-white">
 
             <div className="flex">
-              <span className="solid-glow-letter">F</span>
-              <span className="outline-glow-text">UTURE</span>
+              <span className="solid-glow-letter" data-text="F">F</span>
+              <span className="outline-glow-text" data-text="UTURE">UTURE</span>
             </div>
 
             <div className="flex">
-              <span className="solid-glow-letter">R</span>
-              <span className="outline-glow-text">EADY</span>
+              <span className="solid-glow-letter" data-text="R">R</span>
+              <span className="outline-glow-text" data-text="EADY">EADY</span>
             </div>
 
             <div className="flex">
-              <span className="solid-glow-letter">P</span>
-              <span className="outline-glow-text">RODUCTS</span>
+              <span className="solid-glow-letter" data-text="P">P</span>
+              <span className="outline-glow-text" data-text="RODUCTS">RODUCTS</span>
             </div>
 
           </h1>
           <p
             style={{ color: "#ffffff" }}
-            className="text-base sm:text-lg leading-relaxed font-light text-slate-400"
+            className="text-base sm:text-lg leading-relaxed font-light text-slate-300"
           >
-            Secure, scalable access to vetted developers, custom enterprise software engineering, and high-performance cloud architectures.
+            We build fast, secure, and modern digital experiences. Specializing in high-performance React applications, Laravel portals, and WordPress websites custom-tailored for schools, businesses, and startups.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
