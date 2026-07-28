@@ -19,7 +19,9 @@ import {
   Wifi, 
   Mic, 
   Key, 
-  Hexagon 
+  Hexagon,
+  Cloud,
+  Flag
 } from "lucide-react";
 
 const productsList = [
