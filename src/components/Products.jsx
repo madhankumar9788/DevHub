@@ -75,12 +75,12 @@ const techIcons = {
   ),
   html: (
     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#e34f26">
-      <path d="M1.5 2L3 20.5l9 3.5 9-3.5L22.5 2H1.5zm16.5 6.5h-8l.2 1.8h7.6l-.6 6.2-3.2 1.2-3.2-1.2-.2-2.2H12l.1 1.2 1.9.7 1.9-.7.3-3.2H7.6l-.6-6h11.2l-.2 2.2z" />
+      <path d="M1.5 0h21l-1.91 21.63L12 24l-8.59-2.37L1.5 0Zm14.28 7.37H7.76l.16 1.77h8.18l-.29 3.23-3.81 1.05-3.81-1.05-.26-2.92H6.31l.43 4.8 5.26 1.46 5.26-1.46.56-6.18h-.04Z" />
     </svg>
   ),
   css: (
     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#1572b6">
-      <path d="M1.5 2L3 20.5l9 3.5 9-3.5L22.5 2H1.5zm16.5 6.5h-8l.2 1.8h7.6l-.6 6.2-3.2 1.2-3.2-1.2-.2-2.2H12l.1 1.2 1.9.7 1.9-.7.3-3.2H7.6l-.6-6h11.2l-.2 2.2z" />
+      <path d="M1.5 0h21l-1.91 21.63L12 24l-8.59-2.37L1.5 0Zm17.08 3.55h-13.3l.16 1.77h12.98l-.13 1.48H5.21l.16 1.77h12.78l-.34 3.78-5.81 1.61-5.81-1.61-.39-4.26h-1.62l.53 5.76 7.29 2.02 7.29-2.02.66-7.29H5.53l-.16-1.77h13.38l-.16-1.77Z" />
     </svg>
   ),
   javascript: (
@@ -143,9 +143,9 @@ function OrbitingTechCircles() {
           {innerIcons.map((ico, idx) => (
             <div
               key={`inner-${idx}`}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+              className="absolute top-1/2 left-1/2 pointer-events-auto"
               style={{
-                transform: `rotate(${ico.angle}deg) translate(70px) rotate(-${ico.angle}deg)`
+                transform: `translate(-50%, -50%) rotate(${ico.angle}deg) translate(70px) rotate(-${ico.angle}deg)`
               }}
             >
               <div className="w-10 h-10 bg-slate-900/60 border border-slate-700/30 rounded-xl backdrop-blur-md flex items-center justify-center shadow-lg text-white animate-orbit-ccw" style={{ '--orbit-duration': '22s' }}>
@@ -162,9 +162,9 @@ function OrbitingTechCircles() {
           {middleIcons.map((ico, idx) => (
             <div
               key={`middle-${idx}`}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+              className="absolute top-1/2 left-1/2 pointer-events-auto"
               style={{
-                transform: `rotate(${ico.angle}deg) translate(135px) rotate(-${ico.angle}deg)`
+                transform: `translate(-50%, -50%) rotate(${ico.angle}deg) translate(135px) rotate(-${ico.angle}deg)`
               }}
             >
               <div className="w-10 h-10 bg-slate-900/60 border border-slate-700/30 rounded-xl backdrop-blur-md flex items-center justify-center shadow-lg text-white animate-orbit-cw" style={{ '--orbit-duration': '32s' }}>
@@ -181,9 +181,9 @@ function OrbitingTechCircles() {
           {outerIcons.map((ico, idx) => (
             <div
               key={`outer-${idx}`}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+              className="absolute top-1/2 left-1/2 pointer-events-auto"
               style={{
-                transform: `rotate(${ico.angle}deg) translate(200px) rotate(-${ico.angle}deg)`
+                transform: `translate(-50%, -50%) rotate(${ico.angle}deg) translate(200px) rotate(-${ico.angle}deg)`
               }}
             >
               <div className="w-10 h-10 bg-slate-900/60 border border-slate-700/30 rounded-xl backdrop-blur-md flex items-center justify-center shadow-lg text-white animate-orbit-ccw" style={{ '--orbit-duration': '42s' }}>
