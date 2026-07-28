@@ -192,16 +192,16 @@ export default function Hero() {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.2] flex flex-wrap items-center">
             <span className="mr-3">We Build</span>
             <span className="relative inline-flex items-center w-[240px] sm:w-[300px] lg:w-[360px] h-[1.3em] overflow-hidden text-left uppercase">
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0">
-                <span className="solid-glow-letter text-white" data-text="V">V</span>
+              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0" style={{ '--glow-color': '#22d3ee', '--glow-shadow': 'rgba(34, 211, 238, 0.3)' }}>
+                <span className="solid-glow-letter" data-text="V">V</span>
                 <span className="outline-glow-text" data-text="ISUALLY.">ISUALLY.</span>
               </span>
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0">
-                <span className="solid-glow-letter text-white" data-text="F">F</span>
+              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0" style={{ '--glow-color': '#f59e0b', '--glow-shadow': 'rgba(245, 158, 11, 0.3)' }}>
+                <span className="solid-glow-letter" data-text="F">F</span>
                 <span className="outline-glow-text" data-text="AST.">AST.</span>
               </span>
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0">
-                <span className="solid-glow-letter text-white" data-text="E">E</span>
+              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0" style={{ '--glow-color': '#10b981', '--glow-shadow': 'rgba(16, 185, 129, 0.3)' }}>
+                <span className="solid-glow-letter" data-text="E">E</span>
                 <span className="outline-glow-text" data-text="ASILY.">ASILY.</span>
               </span>
             </span>
