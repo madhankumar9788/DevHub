@@ -112,7 +112,7 @@ export default function Stats() {
           {/* Card 1: Team Extension (col-span-2) */}
           <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 md:col-span-2">
             <div className="max-w-md space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+              <div className="w-12 h-12 bg-indigo-50/55 backdrop-blur-md border border-indigo-100/40 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
                 <PuzzleIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Team Extension</h3>
@@ -130,7 +130,7 @@ export default function Stats() {
           {/* Card 2: Affordable Rates */}
           <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300">
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+              <div className="w-12 h-12 bg-indigo-50/55 backdrop-blur-md border border-indigo-100/40 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
                 <HeadphonesIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Affordable Rates</h3>
@@ -146,7 +146,7 @@ export default function Stats() {
           {/* Card 3: Reliable Partner (row-span-2) */}
           <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300 md:row-span-2">
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+              <div className="w-12 h-12 bg-indigo-50/55 backdrop-blur-md border border-indigo-100/40 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
                 <ShieldIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Reliable Partner</h3>
@@ -176,7 +176,7 @@ export default function Stats() {
           {/* Card 4: Fast Delivery */}
           <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300">
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+              <div className="w-12 h-12 bg-indigo-50/55 backdrop-blur-md border border-indigo-100/40 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
                 <ZapIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Fast Delivery</h3>
@@ -192,7 +192,7 @@ export default function Stats() {
           {/* Card 5: Flexible Plans */}
           <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300">
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+              <div className="w-12 h-12 bg-indigo-50/55 backdrop-blur-md border border-indigo-100/40 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
                 <CoinsIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Flexible Plans</h3>
@@ -213,7 +213,7 @@ export default function Stats() {
           {/* Card 6: Tight Deadlines (col-span-2) */}
           <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 md:col-span-2">
             <div className="max-w-md space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+              <div className="w-12 h-12 bg-indigo-50/55 backdrop-blur-md border border-indigo-100/40 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
                 <ClockIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Tight Deadlines</h3>
@@ -234,16 +234,16 @@ export default function Stats() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
           {stats.map((s, index) => {
             const iconWrappers = [
-              "w-12 h-12 bg-slate-950 border border-cyan-500/20 rounded-xl flex items-center justify-center shadow-[0_0_8px_rgba(34,211,238,0.12)]",
-              "w-12 h-12 bg-slate-950 border border-indigo-500/20 rounded-xl flex items-center justify-center shadow-[0_0_8px_rgba(99,102,241,0.12)]",
-              "w-12 h-12 bg-slate-950 border border-amber-500/20 rounded-xl flex items-center justify-center shadow-[0_0_8px_rgba(245,158,11,0.12)]",
-              "w-12 h-12 bg-slate-950 border border-emerald-500/20 rounded-xl flex items-center justify-center shadow-[0_0_8px_rgba(16,185,129,0.12)]"
+              "w-12 h-12 bg-cyan-50/55 backdrop-blur-md border border-cyan-100/40 rounded-xl flex items-center justify-center text-cyan-600 shadow-sm",
+              "w-12 h-12 bg-indigo-50/55 backdrop-blur-md border border-indigo-100/40 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm",
+              "w-12 h-12 bg-amber-50/55 backdrop-blur-md border border-amber-100/40 rounded-xl flex items-center justify-center text-amber-600 shadow-sm",
+              "w-12 h-12 bg-emerald-50/55 backdrop-blur-md border border-emerald-100/40 rounded-xl flex items-center justify-center text-emerald-600 shadow-sm"
             ];
             const iconsList = [
-              <svg key="grow" className="w-5 h-5 text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.4)]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>,
-              <svg key="responsive" className="w-5 h-5 text-indigo-400 drop-shadow-[0_0_4px_rgba(99,102,241,0.4)]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>,
-              <svg key="pages" className="w-5 h-5 text-amber-400 drop-shadow-[0_0_4px_rgba(245,158,11,0.4)]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>,
-              <svg key="exp" className="w-5 h-5 text-emerald-400 drop-shadow-[0_0_4px_rgba(16,185,129,0.4)]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" /></svg>
+              <svg key="grow" className="w-5 h-5 text-cyan-650" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>,
+              <svg key="responsive" className="w-5 h-5 text-indigo-650" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>,
+              <svg key="pages" className="w-5 h-5 text-amber-650" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>,
+              <svg key="exp" className="w-5 h-5 text-emerald-650" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" /></svg>
             ];
             const descriptions = [
               "Live websites successfully developed for schools, businesses, and digital platforms.",
