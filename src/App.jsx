@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import Stats from "./components/Stats";
 import Services from "./components/Services";
+import Products from "./components/Products";
 import Portfolio from "./components/Portfolio";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
@@ -46,6 +47,7 @@ export default function App() {
         <Marquee />
         <Stats />
         <Services />
+        <Products />
         <Portfolio />
         <Testimonials />
         <Footer />
