@@ -60,56 +60,77 @@ const productsList = [
 
 function OrbitingTechCircles() {
   const innerIcons = [
-    { icon: Bell, angle: 0 },
-    { icon: Code, angle: 120 },
-    { icon: Star, angle: 240 }
+    { icon: Bell, top: "50%", left: "100%" },
+    { icon: Code, top: "93.3013%", left: "75%" },
+    { icon: Star, top: "93.3013%", left: "25%" },
+    { icon: Heart, top: "50%", left: "0%" },
+    { icon: Search, top: "6.69873%", left: "25%" },
+    { icon: Hexagon, top: "6.69873%", left: "75%" }
   ];
 
   const middleIcons = [
-    { icon: Hexagon, angle: 0 },
-    { icon: Heart, angle: 72 },
-    { icon: Search, angle: 144 },
-    { icon: Camera, angle: 216 },
-    { icon: Gift, angle: 288 }
+    { icon: Camera, top: "50%", left: "100%" },
+    { icon: Gift, top: "85.3553%", left: "85.3553%" },
+    { icon: Clock, top: "100%", left: "50%" },
+    { icon: Lightbulb, top: "85.3553%", left: "14.6447%" },
+    { icon: Eye, top: "50%", left: "0%" },
+    { icon: Folder, top: "14.6447%", left: "14.6447%" },
+    { icon: Pen, top: "0%", left: "50%" },
+    { icon: Wifi, top: "14.6447%", left: "85.3553%" }
   ];
 
   const outerIcons = [
-    { icon: Clock, angle: 0 },
-    { icon: Lightbulb, angle: 45 },
-    { icon: Eye, angle: 90 },
-    { icon: Folder, angle: 135 },
-    { icon: Pen, angle: 180 },
-    { icon: Wifi, angle: 225 },
-    { icon: Mic, angle: 270 },
-    { icon: Key, angle: 315 }
+    { icon: Mic, top: "50%", left: "100%" },
+    { icon: Key, top: "75%", left: "93.3013%" },
+    { icon: Cloud, top: "93.3013%", left: "75%" },
+    { icon: Rocket, top: "100%", left: "50%" },
+    { icon: Flag, top: "93.3013%", left: "25%" },
+    { icon: BookOpen, top: "75%", left: "6.6987%" },
+    { icon: ShoppingCart, top: "50%", left: "0%" },
+    { icon: Star, top: "25%", left: "6.6987%" },
+    { icon: Bell, top: "6.6987%", left: "25%" },
+    { icon: Code, top: "0%", left: "50%" },
+    { icon: Heart, top: "6.6987%", left: "75%" },
+    { icon: Search, top: "25%", left: "93.3013%" }
   ];
 
   return (
-    <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center scale-90 sm:scale-100">
+    <div className="relative w-full aspect-square max-w-[520px] mx-auto [mask-image:radial-gradient(circle,black_40%,transparent_72%)]">
       {/* Central Custom Leaf Emblem (Screenshot matched design) */}
-      <div className="w-16 h-16 bg-[#0b0f19] border border-slate-800 rounded-full flex items-center justify-center text-white shadow-[0_0_30px_rgba(99,102,241,0.3)] relative z-30">
-        <svg className="w-8 h-8" viewBox="0 0 100 100" fill="none">
-          {/* Stylized rounded "P" / "R" */}
-          <path d="M35 25h20c12 0 20 8 20 20s-8 20-20 20H45v20H35V25zm10 10v20h10c7 0 11-4 11-10s-4-10-11-10H45z" fill="#ffffff" />
-          {/* Leaf accent */}
-          <path d="M58 55c5 0 12 5 12 12s-5 8-12 8c-7 0-9-5-9-12s4-8 9-8z" fill="#818cf8" />
-        </svg>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-[#0b0f19] border border-slate-800 rounded-full shadow-[0_0_30px_rgba(99,102,241,0.3)]">
+          <svg className="w-8 h-8" viewBox="0 0 100 100" fill="none">
+            {/* Stylized rounded "P" / "R" */}
+            <path d="M35 25h20c12 0 20 8 20 20s-8 20-20 20H45v20H35V25zm10 10v20h10c7 0 11-4 11-10s-4-10-11-10H45z" fill="#ffffff" />
+            {/* Leaf accent */}
+            <path d="M58 55c5 0 12 5 12 12s-5 8-12 8c-7 0-9-5-9-12s4-8 9-8z" fill="#818cf8" />
+          </svg>
+        </div>
       </div>
 
-      {/* Inner Orbit (Radius 70px) */}
-      <div className="absolute w-[140px] h-[140px] border border-slate-800/60 rounded-full flex items-center justify-center z-10 pointer-events-none">
-        <div className="absolute inset-0 animate-orbit-cw" style={{ '--orbit-duration': '22s' }}>
+      {/* Circle Border Overlays (Matching Width Percentages) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="aspect-square rounded-full border border-indigo-500/10" style={{ width: "38%", opacity: 1 }} />
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="aspect-square rounded-full border border-indigo-500/10" style={{ width: "62%", opacity: 0.97 }} />
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="aspect-square rounded-full border border-indigo-500/10" style={{ width: "88%", opacity: 0.94 }} />
+      </div>
+
+      {/* Orbit 1: Inner (38%) */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative w-[38%] aspect-square animate-orbit-slow">
           {innerIcons.map((ico, idx) => {
             const IcoComp = ico.icon;
             return (
               <div
                 key={`inner-${idx}`}
-                className="absolute top-1/2 left-1/2 pointer-events-auto"
-                style={{
-                  transform: `translate(-50%, -50%) rotate(${ico.angle}deg) translate(70px) rotate(-${ico.angle}deg)`
-                }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+                style={{ top: ico.top, left: ico.left }}
               >
-                <div className="w-10 h-10 bg-slate-900/60 border border-slate-700/30 rounded-xl backdrop-blur-md flex items-center justify-center shadow-lg text-slate-400 animate-orbit-ccw" style={{ '--orbit-duration': '22s' }}>
+                <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-slate-900/60 border border-slate-700/30 flex items-center justify-center shadow-lg text-slate-400 animate-orbit-counter-slow">
                   <IcoComp className="w-5 h-5 stroke-[1.5]" />
                 </div>
               </div>
@@ -118,20 +139,18 @@ function OrbitingTechCircles() {
         </div>
       </div>
 
-      {/* Middle Orbit (Radius 135px) */}
-      <div className="absolute w-[270px] h-[270px] border border-slate-800/60 rounded-full flex items-center justify-center z-10 pointer-events-none">
-        <div className="absolute inset-0 animate-orbit-ccw" style={{ '--orbit-duration': '32s' }}>
+      {/* Orbit 2: Middle (62%) */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative w-[62%] aspect-square animate-orbit-mid">
           {middleIcons.map((ico, idx) => {
             const IcoComp = ico.icon;
             return (
               <div
                 key={`middle-${idx}`}
-                className="absolute top-1/2 left-1/2 pointer-events-auto"
-                style={{
-                  transform: `translate(-50%, -50%) rotate(${ico.angle}deg) translate(135px) rotate(-${ico.angle}deg)`
-                }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+                style={{ top: ico.top, left: ico.left }}
               >
-                <div className="w-10 h-10 bg-slate-900/60 border border-slate-700/30 rounded-xl backdrop-blur-md flex items-center justify-center shadow-lg text-slate-400 animate-orbit-cw" style={{ '--orbit-duration': '32s' }}>
+                <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-slate-900/60 border border-slate-700/30 flex items-center justify-center shadow-lg text-slate-400 animate-orbit-counter-mid">
                   <IcoComp className="w-5 h-5 stroke-[1.5]" />
                 </div>
               </div>
@@ -140,20 +159,18 @@ function OrbitingTechCircles() {
         </div>
       </div>
 
-      {/* Outer Orbit (Radius 200px) */}
-      <div className="absolute w-[400px] h-[400px] border border-slate-800/60 rounded-full flex items-center justify-center z-10 pointer-events-none">
-        <div className="absolute inset-0 animate-orbit-cw" style={{ '--orbit-duration': '42s' }}>
+      {/* Orbit 3: Outer (88%) */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative w-[88%] aspect-square animate-orbit-fast">
           {outerIcons.map((ico, idx) => {
             const IcoComp = ico.icon;
             return (
               <div
                 key={`outer-${idx}`}
-                className="absolute top-1/2 left-1/2 pointer-events-auto"
-                style={{
-                  transform: `translate(-50%, -50%) rotate(${ico.angle}deg) translate(200px) rotate(-${ico.angle}deg)`
-                }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+                style={{ top: ico.top, left: ico.left }}
               >
-                <div className="w-10 h-10 bg-slate-900/60 border border-slate-700/30 rounded-xl backdrop-blur-md flex items-center justify-center shadow-lg text-slate-400 animate-orbit-ccw" style={{ '--orbit-duration': '42s' }}>
+                <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-slate-900/60 border border-slate-700/30 flex items-center justify-center shadow-lg text-slate-400 animate-orbit-counter-fast">
                   <IcoComp className="w-5 h-5 stroke-[1.5]" />
                 </div>
               </div>
