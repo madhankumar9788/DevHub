@@ -102,11 +102,127 @@ export default function Stats() {
           </p>
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {features.map((f) => (
-            <FeatureCard key={f.title} {...f} />
-          ))}
+        {/* Feature Cards Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {/* Card 1: Team Extension (col-span-2) */}
+          <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 md:col-span-2">
+            <div className="max-w-md space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                <PuzzleIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">Team Extension</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Seamlessly integrate into your operations without the overhead of full-time hiring.</p>
+            </div>
+            {/* Visual: Avatar Stack */}
+            <div className="flex -space-x-3 items-center bg-gray-50 border border-gray-100 px-4 py-3 rounded-2xl shadow-inner self-stretch md:self-auto justify-center">
+              <div className="w-9 h-9 rounded-full bg-indigo-100 border-2 border-white flex items-center justify-center font-bold text-xs text-indigo-700 shadow-sm">MK</div>
+              <div className="w-9 h-9 rounded-full bg-cyan-100 border-2 border-white flex items-center justify-center font-bold text-xs text-cyan-700 shadow-sm">AS</div>
+              <div className="w-9 h-9 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center font-bold text-xs text-emerald-700 shadow-sm">PD</div>
+              <div className="w-9 h-9 rounded-full bg-indigo-600 border-2 border-white flex items-center justify-center font-bold text-xs text-white shadow-sm font-mono">+3</div>
+            </div>
+          </div>
+
+          {/* Card 2: Affordable Rates */}
+          <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                <HeadphonesIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">Affordable Rates</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Expert frontend development at freelance pricing — transparent, no hidden fees.</p>
+            </div>
+            {/* Visual: Rate Pill */}
+            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span className="text-2xl font-black text-indigo-600">₹999<span className="text-xs text-gray-400 font-normal font-sans"> / hr</span></span>
+              <span className="bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">Best Rate</span>
+            </div>
+          </div>
+
+          {/* Card 3: Reliable Partner (row-span-2) */}
+          <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300 md:row-span-2">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                <ShieldIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">Reliable Partner</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Long-term commitment to code quality, maintenance, and your project's success.</p>
+            </div>
+            {/* Visual: Checklist Metrics */}
+            <div className="mt-8 space-y-3">
+              <div className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
+                <span className="text-xs text-gray-600 font-bold">Pixel-Perfect Layouts</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
+                <span className="text-xs text-gray-600 font-bold">Clean, Modern Code</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
+                <span className="text-xs text-gray-600 font-bold">Daily Git Updates</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
+                <span className="text-xs text-gray-600 font-bold">Post-Launch Support</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Fast Delivery */}
+          <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                <ZapIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">Fast Delivery</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Agile workflow delivering production-ready designs ahead of schedule.</p>
+            </div>
+            {/* Visual: Timeframe metric */}
+            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-wide">Average Dev Cycle</span>
+              <span className="text-sm font-black text-indigo-600">3-5 Days</span>
+            </div>
+          </div>
+
+          {/* Card 5: Flexible Plans */}
+          <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-indigo-200 transition-all duration-300">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                <CoinsIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">Flexible Plans</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Pricing that adapts to your project scope, whether a page or a full portal.</p>
+            </div>
+            {/* Visual: Scope Bar */}
+            <div className="mt-5 space-y-2">
+              <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                <div className="bg-indigo-600 h-full w-[75%]" />
+              </div>
+              <div className="flex justify-between text-[9px] text-gray-400 font-bold uppercase tracking-wider">
+                <span>Agile Milestones</span>
+                <span>Split Pay</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 6: Tight Deadlines (col-span-2) */}
+          <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 md:col-span-2">
+            <div className="max-w-md space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                <ClockIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">Tight Deadlines</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Rapid turnaround for admission launches, business events, and urgent campaigns.</p>
+            </div>
+            {/* Visual: Progress Flow */}
+            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider bg-gray-50 border border-gray-100 px-4 py-3 rounded-2xl shadow-inner self-stretch md:self-auto justify-center">
+              <span className="bg-indigo-50 text-indigo-700 px-2 py-1 rounded">Design</span>
+              <span className="text-gray-300">&rarr;</span>
+              <span className="bg-indigo-50 text-indigo-700 px-2 py-1 rounded">Vite Dev</span>
+              <span className="text-gray-300">&rarr;</span>
+              <span className="bg-indigo-600 text-white px-2 py-1 rounded shadow-sm">Launch</span>
+            </div>
+          </div>
         </div>
 
         {/* Stats Bar */}

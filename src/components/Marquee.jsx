@@ -100,9 +100,9 @@ export default function Marquee() {
     <div className="relative overflow-hidden bg-white py-20 border-y border-gray-200">
 
       {/* Background Glow */}
-      <div className="absolute -top-32 left-0 w-[500px] h-[500px] bg-indigo-100 rounded-full blur-[140px] opacity-70 pointer-events-none" />
+      <div className="absolute -top-32 left-0 w-[500px] h-[500px] bg-indigo-400 rounded-full blur-[160px] opacity-20 pointer-events-none" />
 
-      <div className="absolute -bottom-32 right-0 w-[500px] h-[500px] bg-cyan-100 rounded-full blur-[140px] opacity-70 pointer-events-none" />
+      <div className="absolute -bottom-32 right-0 w-[500px] h-[500px] bg-cyan-500 rounded-full blur-[160px] opacity-20 pointer-events-none" />
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:60px_60px] opacity-50" />
 
@@ -141,7 +141,7 @@ export default function Marquee() {
           {/* Row 1 */}
           <div className="group overflow-hidden">
 
-            <div className="flex gap-6 animate-marquee group-hover:[animation-play-state:paused]">
+            <div className="flex gap-6 pt-5 animate-marquee group-hover:[animation-play-state:paused]">
 
               {[...rowA, ...rowA].map((item, index) => (
 
@@ -150,14 +150,14 @@ export default function Marquee() {
                   className="
               flex items-center gap-3
               rounded-2xl
-              border border-gray-200
+              border border-gray-100
               bg-white
               px-6 py-4
-              shadow-sm
+              
               transition-all duration-300
               hover:-translate-y-1
               hover:border-indigo-300
-              hover:shadow-xl
+              
               hover:shadow-indigo-100
               "
                 >
@@ -179,7 +179,7 @@ export default function Marquee() {
           {/* Row 2 */}
           <div className="group overflow-hidden mt-6">
 
-            <div className="flex gap-6 animate-marquee-reverse group-hover:[animation-play-state:paused]">
+            <div className="flex gap-6 pt-5 animate-marquee-reverse group-hover:[animation-play-state:paused]">
 
               {[...rowB, ...rowB].map((item, index) => (
 
@@ -188,14 +188,14 @@ export default function Marquee() {
                   className="
               flex items-center gap-3
               rounded-2xl
-              border border-gray-200
+              border border-gray-100
               bg-white
               px-6 py-4
-              shadow-sm
+              
               transition-all duration-300
               hover:-translate-y-1
               hover:border-cyan-300
-              hover:shadow-xl
+              
               hover:shadow-cyan-100
               "
                 >

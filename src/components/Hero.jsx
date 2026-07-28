@@ -56,7 +56,7 @@ function CpuChip() {
  */
 function TabletMockup() {
   return (
-    <div className="relative w-full max-w-[620px] aspect-[4/3] perspective-[1500px]">
+    <div className="relative w-full max-w-[600px] aspect-[4/3] perspective-[1500px]">
       {/* Bottom Concrete Stand Blocks */}
       <div className="absolute bottom-[-40px] left-[-20px] w-[50%] h-[30px] bg-slate-800/80 border border-slate-700 rounded-lg transform -rotate-x-12 -rotate-y-12 rotate-z-6 shadow-2xl pointer-events-none" />
       <div className="absolute bottom-[-60px] right-[40px] w-[60%] h-[40px] bg-slate-900 border border-slate-800 rounded-lg transform -rotate-x-12 -rotate-y-12 rotate-z-6 shadow-2xl pointer-events-none" />
@@ -98,11 +98,10 @@ function TabletMockup() {
             {/* Left copy block */}
             <div className="col-span-7 space-y-4 text-left">
               <h2 style={{ color: "#ffffff" }} className="text-2xl sm:text-3xl font-black leading-tight tracking-tight">
-                Jaw-Dropping  Websites
+                We Build Visually Captivating Websites
               </h2>
               <p style={{ color: "#94a3b8" }} className="text-[10px] leading-relaxed font-light">
-                Custom React, WordPress, and Laravel development built to scale.
-              </p>
+                We build fast, secure, and modern digital experiences.              </p>
               <button className="bg-blue-600 hover:bg-blue-500 text-white font-mono text-[9px] px-3.5 py-2 rounded-full border border-blue-500 transition-all font-bold">
                 View Showcase
               </button>
@@ -150,13 +149,13 @@ export default function Hero() {
       const words = gsap.utils.toArray(".scrolling-word");
 
       words.forEach((word) => {
-        tl.fromTo(word, 
+        tl.fromTo(word,
           { y: 40, opacity: 0, pointerEvents: "none" },
           { y: 0, opacity: 1, pointerEvents: "auto", duration: 0.5, ease: "power3.out" }
         )
-        .to(word, 
-          { y: -40, opacity: 0, pointerEvents: "none", duration: 0.5, ease: "power3.in", delay: 1.8 }
-        );
+          .to(word,
+            { y: -40, opacity: 0, pointerEvents: "none", duration: 0.5, ease: "power3.in", delay: 1.8 }
+          );
       });
     });
 
