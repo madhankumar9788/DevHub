@@ -278,21 +278,21 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-6xl lg:text-8xl font-black uppercase leading-[0.85] font-gothic text-white">
+          <h1 className="text-6xl lg:text-8xl font-black uppercase leading-[0.85]">
 
             <div className="flex">
-              <span className="solid-glow-letter" data-text="F">F</span>
-              <span className="outline-glow-text" data-text="UTURE">UTURE</span>
+              <span className="solid-glow-letter">F</span>
+              <span className="outline-glow-text">UTURE</span>
             </div>
 
             <div className="flex">
-              <span className="solid-glow-letter" data-text="R">R</span>
-              <span className="outline-glow-text" data-text="EADY">EADY</span>
+              <span className="solid-glow-letter">R</span>
+              <span className="outline-glow-text">EADY</span>
             </div>
 
             <div className="flex">
-              <span className="solid-glow-letter" data-text="P">P</span>
-              <span className="outline-glow-text" data-text="RODUCTS">RODUCTS</span>
+              <span className="solid-glow-letter">P</span>
+              <span className="outline-glow-text">RODUCTS</span>
             </div>
 
           </h1>
