@@ -145,6 +145,20 @@ export default function Hero() {
         ease: "power3.out",
         delay: 0.15,
       });
+
+      // Scrolling words rotator animation loop
+      const tl = gsap.timeline({ repeat: -1 });
+      const words = gsap.utils.toArray(".scrolling-word");
+
+      words.forEach((word) => {
+        tl.fromTo(word, 
+          { y: 40, opacity: 0, pointerEvents: "none" },
+          { y: 0, opacity: 1, pointerEvents: "auto", duration: 0.5, ease: "power3.out" }
+        )
+        .to(word, 
+          { y: -40, opacity: 0, pointerEvents: "none", duration: 0.5, ease: "power3.in", delay: 1.8 }
+        );
+      });
     });
 
     return () => ctx.revert();
@@ -180,14 +194,14 @@ export default function Hero() {
             Create jaw-dropping
             <br />
             websites.
-            <div className="mt-5 flex flex-wrap gap-x-4 text-3xl sm:text-4xl lg:text-5xl font-black uppercase">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.35)]">
+            <div className="mt-5 relative h-[1.3em] overflow-hidden text-3xl sm:text-4xl lg:text-5xl font-black uppercase flex items-center">
+              <span className="scrolling-word absolute text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.35)] opacity-0">
                 Visually.
               </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 drop-shadow-[0_0_15px_rgba(251,191,36,0.35)]">
+              <span className="scrolling-word absolute text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 drop-shadow-[0_0_15px_rgba(251,191,36,0.35)] opacity-0">
                 Fast.
               </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500 drop-shadow-[0_0_15px_rgba(52,211,153,0.35)]">
+              <span className="scrolling-word absolute text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500 drop-shadow-[0_0_15px_rgba(52,211,153,0.35)] opacity-0">
                 Easily.
               </span>
             </div>
