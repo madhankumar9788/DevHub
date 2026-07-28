@@ -36,6 +36,11 @@ function Stat({ value, suffix, label, active }) {
   );
 }
 
+function StatValue({ value, suffix, active }) {
+  const count = useCountUp(value, 2, active);
+  return <>{count}{suffix}</>;
+}
+
 function FeatureCard({ icon: Icon, title, description }) {
   return (
     <div className="bg-white rounded-2xl p-7 border border-gray-200 hover:border-indigo-200 hover:shadow-lg transition-all duration-300 group">
@@ -226,10 +231,51 @@ export default function Stats() {
         </div>
 
         {/* Stats Bar */}
-        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-200 grid grid-cols-2 md:grid-cols-4 gap-10">
-          {stats.map((s) => (
-            <Stat key={s.label} {...s} active={inView} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
+          {stats.map((s, index) => {
+            const iconsList = [
+              <svg key="grow" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>,
+              <svg key="responsive" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>,
+              <svg key="pages" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>,
+              <svg key="exp" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" /></svg>
+            ];
+            const descriptions = [
+              "Live websites successfully developed for schools, businesses, and digital platforms.",
+              "Optimized layouts thoroughly tested across different mobile and desktop device viewports.",
+              "SEO-optimized pages structured with clean logic and responsive components.",
+              "Freelance development experience translating client requirements into working code."
+            ];
+
+            return (
+              <div 
+                key={s.label} 
+                className={`stat-card-${index + 1} relative bg-white border border-gray-200/80 rounded-2xl p-8 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 overflow-hidden flex flex-col justify-between`}
+              >
+                {/* Diagonal page fold effect */}
+                <div className="absolute top-0 right-0 w-6 h-6 bg-gray-50 border-l border-b border-gray-200 rounded-bl-lg shadow-sm" />
+
+                {/* Grid overlay visual inside card */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#f9fafb_1px,transparent_1px),linear-gradient(to_bottom,#f9fafb_1px,transparent_1px)] bg-[size:10px_10px] pointer-events-none opacity-60" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    {/* Sleek rounded dark container for icon */}
+                    <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center shadow-md">
+                      {iconsList[index]}
+                    </div>
+                    {/* Big Bold Stat Counter */}
+                    <span className="text-3xl font-black text-gray-900 tracking-tight">
+                      <StatValue value={s.value} suffix={s.suffix} active={inView} />
+                    </span>
+                  </div>
+
+                  <p className="text-gray-500 text-sm leading-relaxed font-light">
+                    {descriptions[index]}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
