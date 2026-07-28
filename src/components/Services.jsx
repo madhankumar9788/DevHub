@@ -1,24 +1,26 @@
+import { GraduationCap, Building2, BookOpen, Atom } from "lucide-react";
+
 const services = [
   {
-    emoji: "🎓",
+    icon: GraduationCap,
     title: "College & Institute Websites",
     description: "Responsive institutional portals with admission forms, department pages, event galleries, and faculty listings.",
     price: "Starting ₹15,000",
   },
   {
-    emoji: "🏢",
+    icon: Building2,
     title: "Business & Corporate Sites",
     description: "Modern, high-converting business landing pages and multi-page corporate sites built for brand credibility.",
     price: "Starting ₹12,000",
   },
   {
-    emoji: "📚",
+    icon: BookOpen,
     title: "EdTech & Skill Platforms",
     description: "Interactive course listing portals, learning dashboards, and student-facing educational platforms.",
     price: "Starting ₹20,000",
   },
   {
-    emoji: "⚛️",
+    icon: Atom,
     title: "Custom React Applications",
     description: "High-performance SPAs built with React 19, Tailwind, and modern state management patterns.",
     price: "Starting ₹18,000",
@@ -27,6 +29,10 @@ const services = [
 
 export default function Services() {
   const s = services;
+  const Icon0 = s[0].icon;
+  const Icon1 = s[1].icon;
+  const Icon2 = s[2].icon;
+  const Icon3 = s[3].icon;
 
   return (
     <section id="services" className="bg-white py-24 px-6 md:px-10 scroll-section">
@@ -51,7 +57,9 @@ export default function Services() {
           {/* Column 1: College & Institute Websites (bg-amber-50/50, col-span-4) */}
           <div className="lg:col-span-4 bg-[#fbf9f4] border border-[#ebdcb9]/40 rounded-3xl p-8 hover:border-amber-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div className="text-3xl mb-5">{s[0].emoji}</div>
+              <div className="w-12 h-12 bg-white/80 backdrop-blur-md border border-[#ebdcb9]/30 rounded-xl flex items-center justify-center text-amber-600 mb-5 shadow-sm">
+                <Icon0 className="w-6 h-6" />
+              </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
                 {s[0].title}
               </h3>
@@ -85,7 +93,9 @@ export default function Services() {
             {/* Service 2 Card */}
             <div className="bg-white border border-gray-100 rounded-3xl p-8 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between flex-grow group shadow-sm">
               <div>
-                <div className="text-3xl mb-5">{s[1].emoji}</div>
+                <div className="w-12 h-12 bg-indigo-50/50 backdrop-blur-md border border-indigo-100/50 rounded-xl flex items-center justify-center text-indigo-600 mb-5 shadow-sm">
+                  <Icon1 className="w-6 h-6" />
+                </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
                   {s[1].title}
                 </h3>
@@ -101,7 +111,9 @@ export default function Services() {
             {/* Service 3 Card */}
             <div className="bg-white border border-gray-100 rounded-3xl p-8 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between flex-grow group shadow-sm">
               <div>
-                <div className="text-3xl mb-5">{s[2].emoji}</div>
+                <div className="w-12 h-12 bg-indigo-50/50 backdrop-blur-md border border-indigo-100/50 rounded-xl flex items-center justify-center text-indigo-600 mb-5 shadow-sm">
+                  <Icon2 className="w-6 h-6" />
+                </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
                   {s[2].title}
                 </h3>
@@ -118,7 +130,9 @@ export default function Services() {
           {/* Column 3: Custom React Apps (bg-white/50, col-span-4) */}
           <div className="lg:col-span-4 bg-white border border-gray-100 rounded-3xl p-8 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
             <div>
-              <div className="text-3xl mb-5">{s[3].emoji}</div>
+              <div className="w-12 h-12 bg-indigo-50/50 backdrop-blur-md border border-indigo-100/50 rounded-xl flex items-center justify-center text-indigo-600 mb-5 shadow-sm">
+                <Icon3 className="w-6 h-6" />
+              </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
                 {s[3].title}
               </h3>
