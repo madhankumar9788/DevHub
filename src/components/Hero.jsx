@@ -9,39 +9,39 @@ import gsap from "gsap";
  */
 function CpuChip() {
   return (
-    <div className="relative w-36 h-36 bg-slate-950 border border-slate-800/80 rounded-xl p-3 flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.3)] animate-chip-glow">
+    <div className="relative w-36 h-36 bg-slate-950 border border-slate-800/80 rounded-xl p-3 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.2)] animate-chip-glow">
       {/* Horizontal pins */}
       <div className="absolute inset-x-[-10px] top-1/3 bottom-1/3 flex flex-col justify-between pointer-events-none">
         <div className="flex justify-between w-full">
-          <div className="w-2.5 h-[1.5px] bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
-          <div className="w-2.5 h-[1.5px] bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
+          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
+          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
         </div>
         <div className="flex justify-between w-full">
-          <div className="w-2.5 h-[1.5px] bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
-          <div className="w-2.5 h-[1.5px] bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
+          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
+          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
         </div>
       </div>
 
       {/* Vertical pins */}
       <div className="absolute inset-y-[-10px] left-1/3 right-1/3 flex justify-between pointer-events-none">
         <div className="flex flex-col justify-between h-full">
-          <div className="w-[1.5px] h-2.5 bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
-          <div className="w-[1.5px] h-2.5 bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
+          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
+          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
         </div>
         <div className="flex flex-col justify-between h-full">
-          <div className="w-[1.5px] h-2.5 bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
-          <div className="w-[1.5px] h-2.5 bg-blue-500/50 shadow-[0_0_4px_#3b82f6]" />
+          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
+          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
         </div>
       </div>
 
       {/* Main Silicon Body */}
       <div className="w-full h-full bg-slate-900 border border-slate-800 rounded-lg p-2 flex items-center justify-center relative">
         {/* Core Logic Block */}
-        <div className="w-16 h-16 bg-gradient-to-b from-slate-950 to-slate-900 border border-blue-500/40 rounded flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="w-16 h-16 bg-gradient-to-b from-slate-950 to-slate-900 border border-indigo-500/30 rounded flex flex-col items-center justify-center relative overflow-hidden">
           {/* LED pulse indicator */}
-          <div className="absolute inset-0 bg-blue-500/10 animate-led-pulse" />
+          <div className="absolute inset-0 bg-indigo-500/10 animate-led-pulse" />
 
-          <svg className="w-6 h-6 text-blue-400 drop-shadow-[0_0_6px_rgba(96,165,250,0.8)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <svg className="w-6 h-6 text-indigo-400 drop-shadow-[0_0_6px_rgba(99,102,241,0.6)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
           </svg>
         </div>
