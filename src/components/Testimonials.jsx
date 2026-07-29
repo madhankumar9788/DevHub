@@ -34,7 +34,7 @@ function Stars({ count }) {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-white mb-60 py-24 px-6 md:px-10 scroll-section">
+    <section id="testimonials" className="bg-white mb-50 py-24 px-6 md:px-10 scroll-section">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-14">
