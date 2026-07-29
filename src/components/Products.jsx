@@ -62,46 +62,28 @@ const productsList = [
   }
 ];
 
-// All 67+ School Clients requested by the user
-const allSchoolNames = [
-  "Ruby Matriculation Hr Sec School", "SMV School", "ALM School", "An-noor Matriculation School",
-  "KMM Matriculation", "KGCAS (KG College of Arts & Science)", "STJMS School", "PNAMHS School (2025)",
-  "Jezreel School", "Al-Ameen MHSS (Erode)", "SSM School", "AL-AMEEN MHSS", "AEMHSS School", "MMEG School",
-  "Nanjappa School", "RGMHSS School", "BPM Matriculation", "MGMS School", "Pandian Matriculation School (PMS)",
-  "Guhan School", "SVN School", "AMS School", "JAMES School", "Vidiyal Matriculation", "St. Mary's Matriculation",
-  "NGP School", "Al-huda Matriculation", "Baptist CBSE School", "KG Matriculation School", "SRMHSS School",
-  "LNMS School", "Falah School", "SAPS School", "Al-ameen Girls Higher School", "Variyar Matriculation School",
-  "Mahajana Vidyalaya Matriculation", "Sri Balan Evergreen Matric", "Sarvodaya Matriculation HSS", "AGN School",
-  "Vasavi Vidyalaya Matric HSS", "Srinivasa Public School", "Sarva Seva Sparrows Nest", "Appu School",
-  "Sivakasi Hindu Nadar Matric HSS", "Unique Public School", "Sri Ragavendra Vidyalaya", "Sri Vaani International",
-  "Kalaivani Model Matric HSS", "Sri Kamatchi Vidya Mandir", "Good Luck Matric High School", "Al-Huda Matric HSS",
-  "Don Bosco Matric HSS", "Cambridge Group of Schools", "Shenbagam Matric HSS", "Dr. Krishna Vikas MHSS",
-  "St. Joseph Matric Kodanagar", "Vivek Vidya Mandir (CBSE)", "Ideal Nursery & Primary", "Edison International School",
-  "G P Matriculation School", "Vivekanthaa Vithyalayaa", "CAMBRIDGE PUBLIC e-SCHOOL", "JMJ English High School",
-  "Madonna Matric Hr. Sec.", "Kids Park Matric Hr. Sec.", "S.V.Nagar Vidyalaya", "Holy Angels Matric HSS",
-  "ST. THOMAS THE APOSTLE ICSE", "Mount Giris International", "Crea Children's Academy"
-];
+
 
 // Orbit 1: Inner (38%) - 6 colored school nodes
 const innerIcons = [
   { icon: GraduationCap, name: "KGCAS", fullName: "KG College of Arts & Science", top: "50%", left: "100%", color: "#38bdf8", bg: "bg-sky-950/90 border-sky-400 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.4)]" },
   { icon: Award, name: "RUBY", fullName: "Ruby Matriculation Hr Sec School", top: "93.3%", left: "75%", color: "#f43f5e", bg: "bg-rose-950/90 border-rose-400 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.4)]" },
   { icon: BookOpen, name: "SMV", fullName: "Sri Vaani International School", top: "93.3%", left: "25%", color: "#10b981", bg: "bg-emerald-950/90 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.4)]" },
-  { icon: Shield, name: "DON BOSCO", fullName: "Don Bosco Matric HSS", top: "50%", left: "0%", color: "#f59e0b", bg: "bg-amber-950/90 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.4)]" },
+  { icon: Shield, name: "DBMS", fullName: "Don Bosco Matric HSS", top: "50%", left: "0%", color: "#f59e0b", bg: "bg-amber-950/90 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.4)]" },
   { icon: School, name: "CAMBRIDGE", fullName: "Cambridge Group of Schools", top: "6.7%", left: "25%", color: "#a855f7", bg: "bg-purple-950/90 border-purple-400 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.4)]" },
   { icon: Building2, name: "AL-AMEEN", fullName: "Al-Ameen MHSS Erode", top: "6.7%", left: "75%", color: "#06b6d4", bg: "bg-cyan-950/90 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.4)]" }
 ];
 
 // Orbit 2: Middle (62%) - 8 colored school nodes
 const middleIcons = [
-  { icon: Sparkles, name: "ST. MARY'S", fullName: "St. Mary's Matriculation School", top: "50%", left: "100%", color: "#60a5fa", bg: "bg-blue-950/90 border-blue-400 text-blue-300 shadow-[0_0_15px_rgba(96,165,250,0.4)]" },
-  { icon: Crown, name: "HOLY ANGELS", fullName: "Holy Angels Matric HSS", top: "85.4%", left: "85.4%", color: "#eab308", bg: "bg-yellow-950/90 border-yellow-400 text-yellow-300 shadow-[0_0_15px_rgba(234,179,8,0.4)]" },
+  { icon: Sparkles, name: "ST.MS", fullName: "St. Mary's Matriculation School", top: "50%", left: "100%", color: "#60a5fa", bg: "bg-blue-950/90 border-blue-400 text-blue-300 shadow-[0_0_15px_rgba(96,165,250,0.4)]" },
+  { icon: Crown, name: "HAMHS", fullName: "Holy Angels Matric HSS", top: "85.4%", left: "85.4%", color: "#eab308", bg: "bg-yellow-950/90 border-yellow-400 text-yellow-300 shadow-[0_0_15px_rgba(234,179,8,0.4)]" },
   { icon: Bookmark, name: "PNAMHS", fullName: "PNAMHS School (2025)", top: "100%", left: "50%", color: "#d946ef", bg: "bg-fuchsia-950/90 border-fuchsia-400 text-fuchsia-300 shadow-[0_0_15px_rgba(217,70,239,0.4)]" },
   { icon: Trophy, name: "ANOOR", fullName: "An-Noor Matriculation School", top: "85.4%", left: "14.6%", color: "#84cc16", bg: "bg-lime-950/90 border-lime-400 text-lime-300 shadow-[0_0_15px_rgba(132,204,22,0.4)]" },
   { icon: Medal, name: "KMM", fullName: "KMM Matriculation School", top: "50%", left: "0%", color: "#f97316", bg: "bg-orange-950/90 border-orange-400 text-orange-300 shadow-[0_0_15px_rgba(249,115,22,0.4)]" },
   { icon: Globe, name: "VIDIYAL", fullName: "Vidiyal Matriculation School", top: "14.6%", left: "14.6%", color: "#14b8a6", bg: "bg-teal-950/90 border-teal-400 text-teal-300 shadow-[0_0_15px_rgba(20,184,166,0.4)]" },
   { icon: Compass, name: "JEZREEL", fullName: "Jezreel International School", top: "0%", left: "50%", color: "#ec4899", bg: "bg-pink-950/90 border-pink-400 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.4)]" },
-  { icon: Landmark, name: "SARVODAYA", fullName: "Sarvodaya Matriculation HSS", top: "14.6%", left: "85.4%", color: "#c084fc", bg: "bg-violet-950/90 border-violet-400 text-violet-300 shadow-[0_0_15px_rgba(192,132,252,0.4)]" }
+  { icon: Landmark, name: "SMHS", fullName: "Sarvodaya Matriculation HSS", top: "14.6%", left: "85.4%", color: "#c084fc", bg: "bg-violet-950/90 border-violet-400 text-violet-300 shadow-[0_0_15px_rgba(192,132,252,0.4)]" }
 ];
 
 // Orbit 3: Outer (88%) - 12 colored school nodes
@@ -111,13 +93,13 @@ const outerIcons = [
   { icon: GraduationCap, name: "PMS", fullName: "Pandian Matriculation School", top: "93.3%", left: "75%", color: "#3b82f6", bg: "bg-indigo-950/90 border-indigo-400 text-indigo-300 shadow-[0_0_15px_rgba(59,130,246,0.4)]" },
   { icon: Lightbulb, name: "GUHAN", fullName: "Guhan School", top: "100%", left: "50%", color: "#d97706", bg: "bg-amber-950/90 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(217,119,6,0.4)]" },
   { icon: Star, name: "UNIQUE", fullName: "Unique Public School", top: "93.3%", left: "25%", color: "#a855f7", bg: "bg-purple-950/90 border-purple-400 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.4)]" },
-  { icon: Building2, name: "SHENBAGAM", fullName: "Shenbagam Matric HSS", top: "75%", left: "6.7%", color: "#6366f1", bg: "bg-indigo-950/90 border-indigo-400 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.4)]" },
+  { icon: Building2, name: "SMHS", fullName: "Shenbagam Matric HSS", top: "75%", left: "6.7%", color: "#6366f1", bg: "bg-indigo-950/90 border-indigo-400 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.4)]" },
   { icon: Shield, name: "BAPTIST", fullName: "Baptist CBSE School", top: "50%", left: "0%", color: "#06b6d4", bg: "bg-cyan-950/90 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.4)]" },
   { icon: BookOpen, name: "STJMS", fullName: "STJMS School", top: "25%", left: "6.7%", color: "#8b5cf6", bg: "bg-violet-950/90 border-violet-400 text-violet-300 shadow-[0_0_15px_rgba(139,92,246,0.4)]" },
-  { icon: Award, name: "KALAIVANI", fullName: "Kalaivani Model HSS", top: "6.7%", left: "25%", color: "#ec4899", bg: "bg-pink-950/90 border-pink-400 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.4)]" },
+  { icon: Award, name: "KMS", fullName: "Kalaivani Model HSS", top: "6.7%", left: "25%", color: "#ec4899", bg: "bg-pink-950/90 border-pink-400 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.4)]" },
   { icon: Cpu, name: "EDISON", fullName: "Edison International School", top: "0%", left: "50%", color: "#14b8a6", bg: "bg-teal-950/90 border-teal-400 text-teal-300 shadow-[0_0_15px_rgba(20,184,166,0.4)]" },
   { icon: School, name: "JMJ", fullName: "JMJ English High School", top: "6.7%", left: "75%", color: "#84cc16", bg: "bg-lime-950/90 border-lime-400 text-lime-300 shadow-[0_0_15px_rgba(132,204,22,0.4)]" },
-  { icon: Crown, name: "ST. THOMAS", fullName: "St. Thomas The Apostle ICSE", top: "25%", left: "93.3%", color: "#ef4444", bg: "bg-red-950/90 border-red-400 text-red-300 shadow-[0_0_15px_rgba(239,68,68,0.4)]" }
+  { icon: Crown, name: "ST.AICSE", fullName: "St. Thomas The Apostle ICSE", top: "25%", left: "93.3%", color: "#ef4444", bg: "bg-red-950/90 border-red-400 text-red-300 shadow-[0_0_15px_rgba(239,68,68,0.4)]" }
 ];
 
 function OrbitingTechCircles() {
