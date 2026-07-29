@@ -1,27 +1,29 @@
-import React from "react";
-import { 
-  BookOpen, 
-  ShoppingCart, 
-  Rocket, 
-  ArrowUpRight, 
+import React, { useState } from "react";
+import {
+  GraduationCap,
+  Building2,
+  BookOpen,
+  Award,
+  Shield,
+  Sparkles,
+  Trophy,
+  Bookmark,
+  Globe,
+  Lightbulb,
+  Medal,
+  Landmark,
+  Library,
+  Flame,
+  Crown,
+  Compass,
+  Cpu,
+  School,
   Star,
-  Bell, 
-  Code, 
-  Heart, 
-  Search, 
-  Camera, 
-  Gift, 
-  Clock, 
-  Lightbulb, 
-  Eye, 
-  Folder, 
-  Pen, 
-  Wifi, 
-  Mic, 
-  Key, 
-  Hexagon,
-  Cloud,
-  Flag
+  CheckCircle2,
+  Search,
+  ShoppingCart,
+  Rocket,
+  ArrowUpRight
 } from "lucide-react";
 
 const productsList = [
@@ -60,64 +62,85 @@ const productsList = [
   }
 ];
 
+// All 67+ School Clients requested by the user
+const allSchoolNames = [
+  "Ruby Matriculation Hr Sec School", "SMV School", "ALM School", "An-noor Matriculation School",
+  "KMM Matriculation", "KGCAS (KG College of Arts & Science)", "STJMS School", "PNAMHS School (2025)",
+  "Jezreel School", "Al-Ameen MHSS (Erode)", "SSM School", "AL-AMEEN MHSS", "AEMHSS School", "MMEG School",
+  "Nanjappa School", "RGMHSS School", "BPM Matriculation", "MGMS School", "Pandian Matriculation School (PMS)",
+  "Guhan School", "SVN School", "AMS School", "JAMES School", "Vidiyal Matriculation", "St. Mary's Matriculation",
+  "NGP School", "Al-huda Matriculation", "Baptist CBSE School", "KG Matriculation School", "SRMHSS School",
+  "LNMS School", "Falah School", "SAPS School", "Al-ameen Girls Higher School", "Variyar Matriculation School",
+  "Mahajana Vidyalaya Matriculation", "Sri Balan Evergreen Matric", "Sarvodaya Matriculation HSS", "AGN School",
+  "Vasavi Vidyalaya Matric HSS", "Srinivasa Public School", "Sarva Seva Sparrows Nest", "Appu School",
+  "Sivakasi Hindu Nadar Matric HSS", "Unique Public School", "Sri Ragavendra Vidyalaya", "Sri Vaani International",
+  "Kalaivani Model Matric HSS", "Sri Kamatchi Vidya Mandir", "Good Luck Matric High School", "Al-Huda Matric HSS",
+  "Don Bosco Matric HSS", "Cambridge Group of Schools", "Shenbagam Matric HSS", "Dr. Krishna Vikas MHSS",
+  "St. Joseph Matric Kodanagar", "Vivek Vidya Mandir (CBSE)", "Ideal Nursery & Primary", "Edison International School",
+  "G P Matriculation School", "Vivekanthaa Vithyalayaa", "CAMBRIDGE PUBLIC e-SCHOOL", "JMJ English High School",
+  "Madonna Matric Hr. Sec.", "Kids Park Matric Hr. Sec.", "S.V.Nagar Vidyalaya", "Holy Angels Matric HSS",
+  "ST. THOMAS THE APOSTLE ICSE", "Mount Giris International", "Crea Children's Academy"
+];
+
+// Orbit 1: Inner (38%) - 6 colored school nodes
+const innerIcons = [
+  { icon: GraduationCap, name: "KGCAS", fullName: "KG College of Arts & Science", top: "50%", left: "100%", color: "#38bdf8", bg: "bg-sky-950/90 border-sky-400 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.4)]" },
+  { icon: Award, name: "RUBY", fullName: "Ruby Matriculation Hr Sec School", top: "93.3%", left: "75%", color: "#f43f5e", bg: "bg-rose-950/90 border-rose-400 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.4)]" },
+  { icon: BookOpen, name: "SMV", fullName: "Sri Vaani International School", top: "93.3%", left: "25%", color: "#10b981", bg: "bg-emerald-950/90 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.4)]" },
+  { icon: Shield, name: "DON BOSCO", fullName: "Don Bosco Matric HSS", top: "50%", left: "0%", color: "#f59e0b", bg: "bg-amber-950/90 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.4)]" },
+  { icon: School, name: "CAMBRIDGE", fullName: "Cambridge Group of Schools", top: "6.7%", left: "25%", color: "#a855f7", bg: "bg-purple-950/90 border-purple-400 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.4)]" },
+  { icon: Building2, name: "AL-AMEEN", fullName: "Al-Ameen MHSS Erode", top: "6.7%", left: "75%", color: "#06b6d4", bg: "bg-cyan-950/90 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.4)]" }
+];
+
+// Orbit 2: Middle (62%) - 8 colored school nodes
+const middleIcons = [
+  { icon: Sparkles, name: "ST. MARY'S", fullName: "St. Mary's Matriculation School", top: "50%", left: "100%", color: "#60a5fa", bg: "bg-blue-950/90 border-blue-400 text-blue-300 shadow-[0_0_15px_rgba(96,165,250,0.4)]" },
+  { icon: Crown, name: "HOLY ANGELS", fullName: "Holy Angels Matric HSS", top: "85.4%", left: "85.4%", color: "#eab308", bg: "bg-yellow-950/90 border-yellow-400 text-yellow-300 shadow-[0_0_15px_rgba(234,179,8,0.4)]" },
+  { icon: Bookmark, name: "PNAMHS", fullName: "PNAMHS School (2025)", top: "100%", left: "50%", color: "#d946ef", bg: "bg-fuchsia-950/90 border-fuchsia-400 text-fuchsia-300 shadow-[0_0_15px_rgba(217,70,239,0.4)]" },
+  { icon: Trophy, name: "ANOOR", fullName: "An-Noor Matriculation School", top: "85.4%", left: "14.6%", color: "#84cc16", bg: "bg-lime-950/90 border-lime-400 text-lime-300 shadow-[0_0_15px_rgba(132,204,22,0.4)]" },
+  { icon: Medal, name: "KMM", fullName: "KMM Matriculation School", top: "50%", left: "0%", color: "#f97316", bg: "bg-orange-950/90 border-orange-400 text-orange-300 shadow-[0_0_15px_rgba(249,115,22,0.4)]" },
+  { icon: Globe, name: "VIDIYAL", fullName: "Vidiyal Matriculation School", top: "14.6%", left: "14.6%", color: "#14b8a6", bg: "bg-teal-950/90 border-teal-400 text-teal-300 shadow-[0_0_15px_rgba(20,184,166,0.4)]" },
+  { icon: Compass, name: "JEZREEL", fullName: "Jezreel International School", top: "0%", left: "50%", color: "#ec4899", bg: "bg-pink-950/90 border-pink-400 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.4)]" },
+  { icon: Landmark, name: "SARVODAYA", fullName: "Sarvodaya Matriculation HSS", top: "14.6%", left: "85.4%", color: "#c084fc", bg: "bg-violet-950/90 border-violet-400 text-violet-300 shadow-[0_0_15px_rgba(192,132,252,0.4)]" }
+];
+
+// Orbit 3: Outer (88%) - 12 colored school nodes
+const outerIcons = [
+  { icon: Library, name: "NANJAPPA", fullName: "Nanjappa School", top: "50%", left: "100%", color: "#059669", bg: "bg-emerald-950/90 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(5,150,105,0.4)]" },
+  { icon: Flame, name: "AGN", fullName: "AGN School", top: "75%", left: "93.3%", color: "#f43f5e", bg: "bg-rose-950/90 border-rose-400 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.4)]" },
+  { icon: GraduationCap, name: "PMS", fullName: "Pandian Matriculation School", top: "93.3%", left: "75%", color: "#3b82f6", bg: "bg-indigo-950/90 border-indigo-400 text-indigo-300 shadow-[0_0_15px_rgba(59,130,246,0.4)]" },
+  { icon: Lightbulb, name: "GUHAN", fullName: "Guhan School", top: "100%", left: "50%", color: "#d97706", bg: "bg-amber-950/90 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(217,119,6,0.4)]" },
+  { icon: Star, name: "UNIQUE", fullName: "Unique Public School", top: "93.3%", left: "25%", color: "#a855f7", bg: "bg-purple-950/90 border-purple-400 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.4)]" },
+  { icon: Building2, name: "SHENBAGAM", fullName: "Shenbagam Matric HSS", top: "75%", left: "6.7%", color: "#6366f1", bg: "bg-indigo-950/90 border-indigo-400 text-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.4)]" },
+  { icon: Shield, name: "BAPTIST", fullName: "Baptist CBSE School", top: "50%", left: "0%", color: "#06b6d4", bg: "bg-cyan-950/90 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.4)]" },
+  { icon: BookOpen, name: "STJMS", fullName: "STJMS School", top: "25%", left: "6.7%", color: "#8b5cf6", bg: "bg-violet-950/90 border-violet-400 text-violet-300 shadow-[0_0_15px_rgba(139,92,246,0.4)]" },
+  { icon: Award, name: "KALAIVANI", fullName: "Kalaivani Model HSS", top: "6.7%", left: "25%", color: "#ec4899", bg: "bg-pink-950/90 border-pink-400 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.4)]" },
+  { icon: Cpu, name: "EDISON", fullName: "Edison International School", top: "0%", left: "50%", color: "#14b8a6", bg: "bg-teal-950/90 border-teal-400 text-teal-300 shadow-[0_0_15px_rgba(20,184,166,0.4)]" },
+  { icon: School, name: "JMJ", fullName: "JMJ English High School", top: "6.7%", left: "75%", color: "#84cc16", bg: "bg-lime-950/90 border-lime-400 text-lime-300 shadow-[0_0_15px_rgba(132,204,22,0.4)]" },
+  { icon: Crown, name: "ST. THOMAS", fullName: "St. Thomas The Apostle ICSE", top: "25%", left: "93.3%", color: "#ef4444", bg: "bg-red-950/90 border-red-400 text-red-300 shadow-[0_0_15px_rgba(239,68,68,0.4)]" }
+];
+
 function OrbitingTechCircles() {
-  const innerIcons = [
-    { icon: Bell, top: "50%", left: "100%" },
-    { icon: Code, top: "93.3013%", left: "75%" },
-    { icon: Star, top: "93.3013%", left: "25%" },
-    { icon: Heart, top: "50%", left: "0%" },
-    { icon: Search, top: "6.69873%", left: "25%" },
-    { icon: Hexagon, top: "6.69873%", left: "75%" }
-  ];
-
-  const middleIcons = [
-    { icon: Camera, top: "50%", left: "100%" },
-    { icon: Gift, top: "85.3553%", left: "85.3553%" },
-    { icon: Clock, top: "100%", left: "50%" },
-    { icon: Lightbulb, top: "85.3553%", left: "14.6447%" },
-    { icon: Eye, top: "50%", left: "0%" },
-    { icon: Folder, top: "14.6447%", left: "14.6447%" },
-    { icon: Pen, top: "0%", left: "50%" },
-    { icon: Wifi, top: "14.6447%", left: "85.3553%" }
-  ];
-
-  const outerIcons = [
-    { icon: Mic, top: "50%", left: "100%" },
-    { icon: Key, top: "75%", left: "93.3013%" },
-    { icon: Cloud, top: "93.3013%", left: "75%" },
-    { icon: Rocket, top: "100%", left: "50%" },
-    { icon: Flag, top: "93.3013%", left: "25%" },
-    { icon: BookOpen, top: "75%", left: "6.6987%" },
-    { icon: ShoppingCart, top: "50%", left: "0%" },
-    { icon: Star, top: "25%", left: "6.6987%" },
-    { icon: Bell, top: "6.6987%", left: "25%" },
-    { icon: Code, top: "0%", left: "50%" },
-    { icon: Heart, top: "6.6987%", left: "75%" },
-    { icon: Search, top: "25%", left: "93.3013%" }
-  ];
+  const [activeTooltip, setActiveTooltip] = useState(null);
 
   return (
-    <div className="relative w-full aspect-square max-w-[520px] mx-auto [mask-image:radial-gradient(circle,black_40%,transparent_72%)]">
-      {/* Central Custom Leaf Emblem (Screenshot matched design) */}
+    <div className="relative w-full aspect-square max-w-[540px] mx-auto [mask-image:radial-gradient(circle,black_45%,transparent_75%)]">
+      {/* Central School Emblem Badge */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-[#0b0f19] border border-slate-800 rounded-full shadow-[0_0_30px_rgba(99,102,241,0.3)]">
-          <svg className="w-8 h-8" viewBox="0 0 100 100" fill="none">
-            {/* Stylized rounded "P" / "R" */}
-            <path d="M35 25h20c12 0 20 8 20 20s-8 20-20 20H45v20H35V25zm10 10v20h10c7 0 11-4 11-10s-4-10-11-10H45z" fill="#ffffff" />
-            {/* Leaf accent */}
-          </svg>
+        <div className="w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center bg-slate-950 border-2 border-indigo-500/50 rounded-full shadow-[0_0_40px_rgba(99,102,241,0.5)]">
+          <GraduationCap className="w-8 h-8 text-indigo-400 mb-0.5 animate-pulse" />
         </div>
       </div>
 
-      {/* Circle Border Overlays (Matching Width Percentages) */}
+      {/* Circle Border Overlays */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="aspect-square rounded-full border border-indigo-500/10" style={{ width: "38%", opacity: 1 }} />
+        <div className="aspect-square rounded-full border border-indigo-500/20" style={{ width: "38%", opacity: 1 }} />
       </div>
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="aspect-square rounded-full border border-indigo-500/10" style={{ width: "62%", opacity: 0.97 }} />
+        <div className="aspect-square rounded-full border border-cyan-500/20" style={{ width: "62%", opacity: 0.97 }} />
       </div>
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="aspect-square rounded-full border border-indigo-500/10" style={{ width: "88%", opacity: 0.94 }} />
+        <div className="aspect-square rounded-full border border-purple-500/20" style={{ width: "88%", opacity: 0.94 }} />
       </div>
 
       {/* Orbit 1: Inner (38%) */}
@@ -128,11 +151,14 @@ function OrbitingTechCircles() {
             return (
               <div
                 key={`inner-${idx}`}
-                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto group"
                 style={{ top: ico.top, left: ico.left }}
+                onMouseEnter={() => setActiveTooltip(ico.fullName)}
+                onMouseLeave={() => setActiveTooltip(null)}
               >
-                <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-slate-900/60 border border-slate-700/30 flex items-center justify-center shadow-lg text-slate-400 animate-orbit-counter-slow">
-                  <IcoComp className="w-5 h-5 stroke-[1.5]" />
+                <div className={`w-10 h-10 md:w-11 md:h-11 rounded-xl border flex flex-col items-center justify-center transition-all duration-300 hover:scale-125 cursor-pointer ${ico.bg} animate-orbit-counter-slow`}>
+                  <IcoComp className="w-5 h-5 stroke-[2]" />
+                  <span className="text-[8px] font-extrabold tracking-tighter uppercase leading-none mt-0.5">{ico.name}</span>
                 </div>
               </div>
             );
@@ -148,11 +174,14 @@ function OrbitingTechCircles() {
             return (
               <div
                 key={`middle-${idx}`}
-                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto group"
                 style={{ top: ico.top, left: ico.left }}
+                onMouseEnter={() => setActiveTooltip(ico.fullName)}
+                onMouseLeave={() => setActiveTooltip(null)}
               >
-                <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-slate-900/60 border border-slate-700/30 flex items-center justify-center shadow-lg text-slate-400 animate-orbit-counter-mid">
-                  <IcoComp className="w-5 h-5 stroke-[1.5]" />
+                <div className={`w-10 h-10 md:w-11 md:h-11 rounded-xl border flex flex-col items-center justify-center transition-all duration-300 hover:scale-125 cursor-pointer ${ico.bg} animate-orbit-counter-mid`}>
+                  <IcoComp className="w-5 h-5 stroke-[2]" />
+                  <span className="text-[8px] font-extrabold tracking-tighter uppercase leading-none mt-0.5">{ico.name}</span>
                 </div>
               </div>
             );
@@ -168,11 +197,14 @@ function OrbitingTechCircles() {
             return (
               <div
                 key={`outer-${idx}`}
-                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+                className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto group"
                 style={{ top: ico.top, left: ico.left }}
+                onMouseEnter={() => setActiveTooltip(ico.fullName)}
+                onMouseLeave={() => setActiveTooltip(null)}
               >
-                <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-slate-900/60 border border-slate-700/30 flex items-center justify-center shadow-lg text-slate-400 animate-orbit-counter-fast">
-                  <IcoComp className="w-5 h-5 stroke-[1.5]" />
+                <div className={`w-10 h-10 md:w-11 md:h-11 rounded-xl border flex flex-col items-center justify-center transition-all duration-300 hover:scale-125 cursor-pointer ${ico.bg} animate-orbit-counter-fast`}>
+                  <IcoComp className="w-5 h-5 stroke-[2]" />
+                  <span className="text-[8px] font-extrabold tracking-tighter uppercase leading-none mt-0.5">{ico.name}</span>
                 </div>
               </div>
             );
@@ -191,7 +223,7 @@ export default function Products() {
       <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
@@ -213,17 +245,17 @@ export default function Products() {
           <div className="lg:col-span-7 space-y-6">
             {productsList.map((p, idx) => {
               const Icon = p.icon;
-              
+
               // Glassy theme classes based on color config
-              const bgClasses = p.color === "cyan" 
-                ? "bg-cyan-950/40 border-cyan-500/20 text-cyan-400" 
-                : p.color === "amber" 
-                ? "bg-amber-950/40 border-amber-500/20 text-amber-400"
-                : "bg-indigo-950/40 border-indigo-500/20 text-indigo-400";
+              const bgClasses = p.color === "cyan"
+                ? "bg-cyan-950/40 border-cyan-500/20 text-cyan-400"
+                : p.color === "amber"
+                  ? "bg-amber-950/40 border-amber-500/20 text-amber-400"
+                  : "bg-indigo-950/40 border-indigo-500/20 text-indigo-400";
 
               return (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 hover:border-indigo-500/30 hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 relative overflow-hidden group shadow-lg"
                 >
                   {/* Compact Info block */}
@@ -240,7 +272,7 @@ export default function Products() {
                       <h3 className="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">
                         {p.title}
                       </h3>
-                      <p className="text-slate-400 text-xs leading-relaxed font-light">
+                      <p className="text-slate-400 text-[15px] leading-relaxed font-light">
                         {p.description}
                       </p>
                     </div>
@@ -267,6 +299,8 @@ export default function Products() {
             <OrbitingTechCircles />
           </div>
         </div>
+
+       
 
       </div>
     </section>

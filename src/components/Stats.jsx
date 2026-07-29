@@ -253,8 +253,8 @@ export default function Stats() {
             ];
 
             return (
-              <div 
-                key={s.label} 
+              <div
+                key={s.label}
                 className={`stat-card-${index + 1} relative bg-white border border-gray-200/80 rounded-2xl p-8 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 overflow-hidden flex flex-col justify-between`}
               >
                 {/* Diagonal page fold effect */}
