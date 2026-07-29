@@ -111,16 +111,6 @@ export default function Hero() {
             {/* Row 3 */}
             <div className="block mt-1 sm:mt-2 text-white font-extrabold">
               User-First Website
-
-              {/* Inline Sparkle Star */}
-              <span className="inline-flex items-center ml-2 align-middle">
-                <img
-                  loading="eager"
-                  src="/images/sparkle.png"
-                  alt="Sparkle"
-                  className="h-[0.85em] w-auto object-contain animate-pulse"
-                />
-              </span>
             </div>
           </h1>
 
