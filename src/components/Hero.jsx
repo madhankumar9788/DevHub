@@ -1,482 +1,153 @@
 "use client";
 
-
-
-import React, { useEffect, useState, useRef } from "react";
-
+import React, { useEffect } from "react";
 import gsap from "gsap";
 
-
-
 /**
-
- * CpuChip Component
-
- * Represents the glowing, animated CPU microchip inside the tablet mockup.
-
+ * GridBanner Component
+ * Renders the top grid row banner with highlighted lit segments.
  */
-
-function CpuChip() {
-
+function GridBanner() {
+  const highlights = [3, 17];
   return (
-
-    <div className="relative w-36 h-36 bg-slate-950 border border-slate-800/80 rounded-xl p-3 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.2)] animate-chip-glow">
-
-      {/* Horizontal pins */}
-
-      <div className="absolute inset-x-[-10px] top-1/3 bottom-1/3 flex flex-col justify-between pointer-events-none">
-
-        <div className="flex justify-between w-full">
-
-          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-        </div>
-
-        <div className="flex justify-between w-full">
-
-          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-          <div className="w-2.5 h-[1.5px] bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-        </div>
-
-      </div>
-
-
-
-      {/* Vertical pins */}
-
-      <div className="absolute inset-y-[-10px] left-1/3 right-1/3 flex justify-between pointer-events-none">
-
-        <div className="flex flex-col justify-between h-full">
-
-          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-        </div>
-
-        <div className="flex flex-col justify-between h-full">
-
-          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-          <div className="w-[1.5px] h-2.5 bg-indigo-500/40 shadow-[0_0_4px_rgba(99,102,241,0.4)]" />
-
-        </div>
-
-      </div>
-
-
-
-      {/* Main Silicon Body */}
-
-      <div className="w-full h-full bg-slate-900 border border-slate-800 rounded-lg p-2 flex items-center justify-center relative">
-
-        {/* Core Logic Block */}
-
-        <div className="w-16 h-16 bg-gradient-to-b from-slate-950 to-slate-900 border border-indigo-500/30 rounded flex flex-col items-center justify-center relative overflow-hidden">
-
-          {/* LED pulse indicator */}
-
-          <div className="absolute inset-0 bg-indigo-500/10 animate-led-pulse" />
-
-
-
-          <svg className="w-6 h-6 text-indigo-400 drop-shadow-[0_0_6px_rgba(99,102,241,0.6)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-
-          </svg>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  );
-
-}
-
-
-
-/**
-
- * TabletMockup Component
-
- * Renders the slanted 3D tablet mockup displaying the site.
-
- */
-
-function TabletMockup() {
-
-  return (
-
-    <div className="relative w-full max-w-[600px] aspect-[4/3] perspective-[1500px]">
-
-      {/* Bottom Concrete Stand Blocks */}
-
-      <div className="absolute bottom-[-40px] left-[-20px] w-[50%] h-[30px] bg-slate-800/80 border border-slate-700 rounded-lg transform -rotate-x-12 -rotate-y-12 rotate-z-6 shadow-2xl pointer-events-none" />
-
-      <div className="absolute bottom-[-60px] right-[40px] w-[60%] h-[40px] bg-slate-900 border border-slate-800 rounded-lg transform -rotate-x-12 -rotate-y-12 rotate-z-6 shadow-2xl pointer-events-none" />
-
-
-
-      {/* Tablet Body Chassis */}
-
-      <div className="w-full h-full bg-[#1e293b] border-[6px] border-[#334155] rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] p-3.5 transform -rotate-x-12 -rotate-y-12 rotate-z-6 relative overflow-hidden group">
-
-        {/* Anti-reflective glass shine sheen */}
-
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-30" />
-
-
-
-        {/* Screen Content Panel */}
-
-        <div className="w-full h-full bg-[#05070c] rounded-[1.8rem] relative overflow-hidden p-6 flex flex-col justify-between border border-slate-950 z-20">
-
-          {/* Subtle Screen Grid overlay */}
-
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
-
-
-
-          {/* Top Navbar */}
-
-          <div className="flex items-center justify-between relative z-20 border-b border-slate-900/80 pb-4">
-
-            <div className="flex items-center gap-1.5">
-
-              <div className="w-5 h-5 rounded bg-blue-500 flex items-center justify-center text-white font-black text-xs">
-
-                D
-
-              </div>
-
-              <span style={{ color: "#ffffff" }} className="text-xs font-bold font-mono tracking-tight">
-
-                DevHub
-
-              </span>
-
-            </div>
-
-
-
-            <div className="flex items-center gap-4 text-[9px] font-mono" style={{ color: "#94a3b8" }}>
-
-              <span>Contact</span>
-
-              <span>Services</span>
-
-              <span>Reviews</span>
-
-            </div>
-
-
-
-            <button className="bg-blue-600/90 text-white font-mono text-[9px] font-bold px-2.5 py-1 rounded-md hover:bg-blue-500 transition-colors">
-
-              $Explore More
-
-            </button>
-
+    <div className="w-full grid grid-cols-12 md:grid-cols-24 bg-black h-16 divide-x divide-neutral-900 border-b border-neutral-900">
+      {Array.from({ length: 24 }).map((_, i) => {
+        const isHighlighted = highlights.includes(i);
+        return (
+          <div 
+            key={i} 
+            className={`h-full relative overflow-hidden transition-all duration-500 ${
+              isHighlighted 
+                ? "bg-gradient-to-b from-neutral-800/35 via-neutral-950/10 to-transparent" 
+                : "bg-[#020205]"
+            }`}
+          >
+            {isHighlighted && (
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-neutral-400 to-transparent" />
+            )}
           </div>
-
-
-
-          {/* Main Area */}
-
-          <div className="grid grid-cols-12 gap-4 items-center my-auto relative z-20">
-
-            {/* Left copy block */}
-
-            <div className="col-span-7 space-y-4 text-left">
-
-              <h2 style={{ color: "#ffffff" }} className="text-2xl sm:text-3xl font-black leading-tight tracking-tight">
-
-                We Build Visually Captivating Websites
-
-              </h2>
-
-              <p style={{ color: "#94a3b8" }} className="text-[10px] leading-relaxed font-light">
-
-                We build fast, secure, and modern digital experiences.              </p>
-
-              <button className="bg-blue-600 hover:bg-blue-500 text-white font-mono text-[9px] px-3.5 py-2 rounded-full border border-blue-500 transition-all font-bold">
-
-                View Showcase
-
-              </button>
-
-            </div>
-
-
-
-            {/* Right microchip */}
-
-            <div className="col-span-5 flex justify-center">
-
-              <CpuChip />
-
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-      </div>
-
+        );
+      })}
     </div>
-
   );
-
 }
-
-
 
 export default function Hero() {
-
   const scrollTo = (e, id) => {
-
     e.preventDefault();
-
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
   };
 
-
-
   useEffect(() => {
-
     const ctx = gsap.context(() => {
-
-      // Entrance animations
-
-      gsap.from(".hero-left", {
-
-        x: -50,
-
+      // Entry transitions for centered elements
+      gsap.from(".hero-content > *", {
+        y: 40,
         opacity: 0,
-
+        stagger: 0.15,
         duration: 1,
-
-        ease: "power3.out",
-
+        ease: "power3.out"
       });
-
-
-
-      gsap.from(".hero-tablet", {
-
-        y: 60,
-
-        scale: 0.95,
-
-        opacity: 0,
-
-        duration: 1,
-
-        ease: "power3.out",
-
-        delay: 0.15,
-
-      });
-
-
-
-      // Scrolling words rotator animation loop
-
-      const tl = gsap.timeline({ repeat: -1 });
-
-      const words = gsap.utils.toArray(".scrolling-word");
-
-
-
-      words.forEach((word) => {
-
-        tl.fromTo(word,
-
-          { y: 40, opacity: 0, pointerEvents: "none" },
-
-          { y: 0, opacity: 1, pointerEvents: "auto", duration: 0.5, ease: "power3.out" }
-
-        )
-
-          .to(word,
-
-            { y: -40, opacity: 0, pointerEvents: "none", duration: 0.5, ease: "power3.in", delay: 1.8 }
-
-          );
-
-      });
-
     });
 
-
-
     return () => ctx.revert();
-
   }, []);
 
-
-
   return (
+    <div className="relative w-full flex flex-col bg-black overflow-hidden relative">
+      
+      {/* Top Banner Row */}
+      <GridBanner />
 
-    <section
+      {/* Hero Central Section */}
+      <section
+        id="hero"
+        style={{ colorScheme: "dark" }}
+        className="relative bg-[#020205] pt-24 pb-36 px-6 md:px-10 flex flex-col items-center justify-center min-h-[70vh]"
+      >
+        {/* 24-Column Vertical Grid Lines matching GridBanner columns */}
+        <div className="absolute inset-y-0 left-0 right-0 grid grid-cols-12 md:grid-cols-24 divide-x divide-neutral-900/60 pointer-events-none z-0" />
+        
+        {/* Subtle Horizontal grid line overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:100%_4rem] pointer-events-none" />
 
-      id="hero"
+        {/* Ambient radial glows */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-      style={{ colorScheme: "dark" }}
-
-      className="bg-[#0b0f19] pt-32 pb-28 px-6 md:px-10 relative overflow-hidden border-b border-slate-950 flex items-center justify-center min-h-[90vh]"
-
-    >
-
-      {/* Glowing light lines (Reference layout) */}
-
-      <div className="absolute top-[-20%] left-[30%] w-16 h-[160%] bg-white/20 blur-2xl rotate-[35deg] origin-top pointer-events-none z-10" />
-
-      <div className="absolute top-[-20%] left-[30%] w-4 h-[160%] bg-white/40 blur-lg rotate-[35deg] origin-top pointer-events-none z-10" />
-
-
-
-      {/* Decorative ambient gradients */}
-
-      <div className="absolute top-0 right-1/4 w-[700px] h-[700px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-
-
-
-      {/* Hero Core Content Wrapper */}
-
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-20">
-
-
-
-        {/* Left Column Copy & CTA */}
-
-        <div className="lg:col-span-5 space-y-8 hero-left text-left">
-
-          <div className="inline-flex items-center gap-2 bg-indigo-950/50 border border-indigo-500/30 px-4 py-1.5 rounded-full">
-
-            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-
-            <span className="text-indigo-200 text-xs font-mono uppercase tracking-widest font-bold">
-
-              Creative Digital Agency
-
-            </span>
-
+        {/* Core Content */}
+        <div className="max-w-5xl w-full mx-auto text-center z-20 hero-content space-y-8">
+          
+          {/* Header Label */}
+          <div className="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#6C5CE7]">
+            Website Development Services
           </div>
 
-
-
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.2] flex flex-wrap items-center">
-
-            <span className="mr-3">We Build</span>
-
-            <span className="relative inline-flex items-center w-[240px] sm:w-[300px] lg:w-[360px] h-[1.3em] overflow-hidden text-left uppercase">
-
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0" style={{ '--glow-color': '#22d3ee', '--glow-shadow': 'rgba(34, 211, 238, 0.3)' }}>
-
-                <span className="solid-glow-letter" data-text="V">V</span>
-
-                <span className="outline-glow-text" data-text="ISUALLY.">ISUALLY.</span>
-
-              </span>
-
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0" style={{ '--glow-color': '#f59e0b', '--glow-shadow': 'rgba(245, 158, 11, 0.3)' }}>
-
-                <span className="solid-glow-letter" data-text="F">F</span>
-
-                <span className="outline-glow-text" data-text="AST.">AST.</span>
-
-              </span>
-
-              <span className="scrolling-word absolute inset-y-0 left-0 flex items-center opacity-0" style={{ '--glow-color': '#10b981', '--glow-shadow': 'rgba(16, 185, 129, 0.3)' }}>
-
-                <span className="solid-glow-letter" data-text="E">E</span>
-
-                <span className="outline-glow-text" data-text="ASILY.">ASILY.</span>
-
-              </span>
-
+          {/* Main Integrated Headline with direct images from kgagile.com */}
+          <h1 className="text-[clamp(30px,5vw,72px)] font-black text-white leading-[1.3] tracking-tight max-w-4xl mx-auto">
+            <span className="text-[#2ecc71] font-bold">Build a </span>
+            
+            {/* Inline Fast lightning image */}
+            <span className="inline-flex mx-2 align-middle w-[120px] sm:w-[150px] md:w-[180px] lg:w-[220px] shrink-0">
+              <img 
+                loading="lazy" 
+                src="https://kgagile.com/wp-content/uploads/2025/11/website_text_4.png" 
+                alt="Fast" 
+                className="w-full h-auto object-contain" 
+              />
             </span>
-
+            
+            {/* Inline Scalable planet image */}
+            <span className="inline-flex mx-2 align-middle w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] shrink-0">
+              <img 
+                loading="lazy" 
+                src="https://kgagile.com/wp-content/uploads/2025/11/website_text_5.png" 
+                alt="Scalable" 
+                className="w-full h-auto object-contain" 
+              />
+            </span>
+            
+            <br />
+            <span className="text-white">User-First Website</span>
+            
+            {/* Inline Sparkle Star image */}
+            <span className="inline-flex mx-2 align-middle w-[40px] sm:w-[50px] md:w-[60px] lg:w-[70px] shrink-0 animate-pulse">
+              <img 
+                loading="lazy" 
+                src="https://kgagile.com/wp-content/uploads/2025/11/Gemini2.webp" 
+                alt="Sparkle" 
+                className="w-full h-auto object-contain" 
+              />
+            </span>
           </h1>
 
-          <p
-
-            style={{ color: "#ffffff" }}
-
-            className="text-base sm:text-lg leading-relaxed font-light text-slate-300"
-
-          >
-
-            We build fast, secure, and modern digital experiences. Specializing in high-performance React applications, Laravel portals, and WordPress websites custom-tailored for schools, businesses, and startups.
-
+          {/* Subtitle description */}
+          <p className="text-sm sm:text-base text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+            As an expert website development company, KG Agile builds websites and web applications that convert visitors into customers.
           </p>
 
-
-
-          <div className="flex flex-wrap items-center gap-4">
-
+          {/* Action CTA Button */}
+          <div className="pt-2">
             <a
-
-              href="#work"
-
-              onClick={(e) => scrollTo(e, "work")}
-
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:scale-105"
-
-            >
-
-              Explore Services
-
-            </a>
-
-            <a
-
               href="#contact"
-
               onClick={(e) => scrollTo(e, "contact")}
-
-              className="border border-slate-700 hover:border-indigo-500 text-slate-300 hover:text-white px-8 py-4 rounded-full font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 bg-slate-900/30"
-
+              className="bg-white hover:bg-neutral-100 px-8 py-3.5 rounded-lg font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-xl shadow-white/5 inline-block"
+              style={{ color: "#1377ED" }}
             >
-
-              Consult Experts
-
+              Get Your Free Consultation
             </a>
-
           </div>
 
         </div>
 
-
-
-        {/* Right Column: Slanted Mock-up Device */}
-
-        <div className="lg:col-span-7 flex justify-center lg:justify-end hero-tablet">
-
-          <TabletMockup />
-
+        {/* Asymmetrical Shape Divider Bottom (Blends to bg-gray-50 next section) */}
+        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path fill="#f9fafb" d="M738,99l262-93V0H0v5.6L738,99z" />
+          </svg>
         </div>
 
+      </section>
 
-
-      </div>
-
-    </section>
-
+    </div>
   );
-
 }
-
