@@ -46,8 +46,8 @@ export default function App() {
         <Hero />
         <Marquee />
         <Stats />
-        <Services />
         <Products />
+        <Services />
         <Portfolio />
         <Testimonials />
         <Footer />
