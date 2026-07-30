@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Heart, Mail, Phone, MapPin, Globe } from "lucide-react";
+import Logo from "./Logo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,15 +112,6 @@ function LaptopScrollingPreview() {
               <div className="h-1.5 w-1/2 bg-white/20 rounded" />
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 p-3 rounded-xl shadow-md">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">🏛️ KGiSL IIM INSTITUTION</span>
-                <span className="text-[9px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">ONLINE</span>
-              </div>
-              <div className="h-2 w-2/3 bg-white/40 rounded mb-1.5" />
-              <div className="h-1.5 w-5/6 bg-white/20 rounded mb-3" />
-            </div>
-
           </div>
         </div>
 
@@ -174,12 +167,12 @@ export default function Footer() {
     <footer
       ref={footerRef}
       id="contact"
-      className="bg-gray-900 text-white pt-24 pb-10 px-6 md:px-10"
+      className="bg-[#030712] text-white pt-24 pb-12 px-4 sm:px-6 md:px-10"
     >
       <div className="max-w-7xl mx-auto">
 
         {/* White Theme CTA Banner with Animated Laptop Moving Scrolling Preview */}
-        <div className="relative bg-white text-neutral-900 border -mt-80 border-neutral-200/90 rounded-3xl p-8 sm:p-12 md:p-14 mb-20 overflow-hidden shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+        <div className="relative bg-white text-neutral-900 border -mt-80 border-neutral-200/90 rounded-3xl p-8 sm:p-12 md:p-14 mb-16 sm:mb-20 overflow-hidden shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
 
           {/* Dot Matrix Background Pattern */}
           <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1.2px,transparent_1.2px)] [background-size:20px_20px] opacity-50 pointer-events-none" />
@@ -237,104 +230,168 @@ export default function Footer() {
 
         </div>
 
-        {/* Original Dark Footer Links & Copyright */}
-        <div className="grid md:grid-cols-4 gap-10">
+        {/* Nur/ui Reference Styled Footer Card */}
+        <div className="relative bg-[#07090e] border border-slate-800/80 rounded-3xl p-8 sm:p-12 lg:p-14 overflow-hidden shadow-2xl flex flex-col justify-between min-h-[420px]">
+          
+          {/* Ambient Lighting Flares inside card */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
 
-          <div>
-            <h2 className="text-3xl font-black text-white">
-              DEV<span className="text-indigo-400">HUB</span>
+          {/* Top 4-Column Grid (Matching Reference Image) */}
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 pb-12">
+            
+            {/* Col 1: Brand Info (Span 4) */}
+            <div className="lg:col-span-4 space-y-4">
+              <Logo light={true} />
+
+              <p className="text-slate-400 text-sm leading-relaxed max-w-sm font-sans">
+                DEV HUB is a modern React, Tailwind CSS and Next.js based UI & web development studio.
+              </p>
+            </div>
+
+            {/* Col 2: About Us (Span 2) */}
+            <div className="lg:col-span-2 space-y-3.5">
+              <h4 className="text-sm font-bold text-white tracking-wide">About Us</h4>
+              <ul className="space-y-2 text-slate-400 text-xs sm:text-sm font-sans">
+                <li>
+                  <a href="#hero" onClick={(e) => scrollTo(e, "hero")} className="hover:text-white transition">
+                    Company History
+                  </a>
+                </li>
+                <li>
+                  <a href="#about" onClick={(e) => scrollTo(e, "about")} className="hover:text-white transition">
+                    Meet the Team
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" onClick={(e) => scrollTo(e, "services")} className="hover:text-white transition">
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a href="#work" onClick={(e) => scrollTo(e, "work")} className="hover:text-white transition">
+                    Portfolio
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 3: Helpful Links (Span 3) */}
+            <div className="lg:col-span-3 space-y-3.5">
+              <h4 className="text-sm font-bold text-white tracking-wide">Helpful Links</h4>
+              <ul className="space-y-2 text-slate-400 text-xs sm:text-sm font-sans">
+                <li>
+                  <a href="#faqs" onClick={(e) => scrollTo(e, "work")} className="hover:text-white transition">
+                    FAQs & Case Studies
+                  </a>
+                </li>
+                <li>
+                  <a href="#support" onClick={(e) => scrollTo(e, "contact")} className="hover:text-white transition">
+                    24/7 Client Support
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <a href="mailto:info@devhub.com" className="hover:text-white transition">
+                    Live Chat
+                  </a>
+                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_6px_rgba(59,130,246,0.8)]" />
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 4: Contact Us (Span 3) */}
+            <div className="lg:col-span-3 space-y-3.5">
+              <h4 className="text-sm font-bold text-white tracking-wide">Contact Us</h4>
+              <div className="space-y-2.5 text-slate-400 text-xs sm:text-sm font-sans">
+                <a href="mailto:info@devhub.com" className="flex items-center gap-2.5 hover:text-white transition">
+                  <Mail className="w-4 h-4 text-indigo-400 shrink-0" />
+                  <span className="truncate">info@devhub.com</span>
+                </a>
+                <a href="tel:+919876543210" className="flex items-center gap-2.5 hover:text-white transition">
+                  <Phone className="w-4 h-4 text-indigo-400 shrink-0" />
+                  <span>+91 98765 43210</span>
+                </a>
+                <div className="flex items-center gap-2.5">
+                  <MapPin className="w-4 h-4 text-indigo-400 shrink-0" />
+                  <span>Coimbatore, India</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* GIANT OUTLINED BRAND WATERMARK TYPOGRAPHY (Matching Reference Image Exact Style) */}
+          <div className="relative my-4 flex items-center justify-center select-none pointer-events-none overflow-hidden">
+            <style>{`
+              .watermark-text-stroke {
+                -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+                color: transparent;
+              }
+            `}</style>
+            <h2 className="watermark-text-stroke text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-extrabold uppercase tracking-widest text-center whitespace-nowrap leading-none transition-all">
+              DEV HUB
             </h2>
+          </div>
 
-            <p className="mt-4 text-gray-400">
-              Frontend Developer specializing in React, Tailwind CSS,
-              Laravel and WordPress.
+          {/* Bottom Bar inside Card (Social Icons + Copyright) */}
+          <div className="relative z-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            {/* Social Media Round Buttons */}
+            <div className="flex items-center gap-3">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-indigo-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
+                aria-label="Facebook"
+              >
+                <Globe className="w-4 h-4" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-pink-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-sky-500 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
+                aria-label="Twitter"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-purple-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
+                aria-label="GitHub"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-blue-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+            </div>
+
+            {/* Right Copyright Text */}
+            <p className="text-slate-500 text-xs sm:text-sm font-sans text-center sm:text-right">
+              © {new Date().getFullYear()} DEVHUB. All rights reserved.
             </p>
+
           </div>
 
-          <div>
-            <h3 className="font-bold mb-5 text-white">
-              Navigation
-            </h3>
-
-            <div className="space-y-3">
-              <button
-                onClick={(e) => scrollTo(e, "hero")}
-                className="block text-gray-400 hover:text-white transition"
-              >
-                Home
-              </button>
-
-              <button
-                onClick={(e) => scrollTo(e, "services")}
-                className="block text-gray-400 hover:text-white transition"
-              >
-                Services
-              </button>
-
-              <button
-                onClick={(e) => scrollTo(e, "work")}
-                className="block text-gray-400 hover:text-white transition"
-              >
-                Portfolio
-              </button>
-
-              <button
-                onClick={(e) => scrollTo(e, "contact")}
-                className="block text-gray-400 hover:text-white transition"
-              >
-                Contact
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-bold mb-5 text-white">
-              Services
-            </h3>
-
-            <div className="space-y-3 text-gray-400">
-              <p>React Development</p>
-              <p>Laravel Development</p>
-              <p>WordPress Websites</p>
-              <p>UI / UX Design</p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-bold mb-5 text-white">
-              Contact
-            </h3>
-
-            <div className="space-y-3">
-              <a
-                href="mailto:info@devhub.com"
-                className="block text-gray-400 hover:text-white transition"
-              >
-                info@devhub.com
-              </a>
-
-              <a
-                href="tel:+919876543210"
-                className="block text-indigo-400 font-semibold"
-              >
-                +91 98765 43210
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="border-t border-gray-800 mt-16 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-500">
-          <p>
-            © {new Date().getFullYear()} DEVHUB. All Rights Reserved.
-          </p>
-
-          <button
-            onClick={(e) => scrollTo(e, "hero")}
-            className="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 font-medium transition"
-          >
-            Back to Top ↑
-          </button>
         </div>
 
       </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,25 +28,18 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-white border-b border-gray-200 shadow-sm py-3"
           : "bg-white/80 backdrop-blur-md py-5"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#hero"
           onClick={(e) => scrollTo(e, "hero")}
-          className="flex items-center gap-2.5"
         >
-          <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black text-lg">
-            D
-          </div>
-          <span className="text-xl font-black text-gray-900 tracking-tight">
-            DEV<span className="text-indigo-600">HUB</span>
-          </span>
+          <Logo />
         </a>
 
         {/* Desktop Nav */}
