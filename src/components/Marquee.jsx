@@ -22,12 +22,12 @@ const icons = {
     </svg>
   ),
   express: (
-    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
       <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
     </svg>
   ),
   nextjs: (
-    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="#ffffff">
+    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="#111827">
       <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 14.5l-3.5-5v5H9v-7h1.5l3.5 5v-5h1.5v7H13z" />
     </svg>
   ),
@@ -64,7 +64,7 @@ const icons = {
     </svg>
   ),
   redux: (
-    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     </svg>
   ),
@@ -76,58 +76,55 @@ const icons = {
 };
 
 const rowA = [
-  { icon: 'react', name: 'React' },
-  { icon: 'node', name: 'Node.js' },
-  { icon: 'nestjs', name: 'NestJS' },
-  { icon: 'express', name: 'ExpressJS' },
-  { icon: 'nextjs', name: 'NextJS' },
-  { icon: 'wordpress', name: 'WordPress' },
-  { icon: 'shopify', name: 'Shopify' },
+  { icon: "react", name: "React" },
+  { icon: "node", name: "Node.js" },
+  { icon: "nestjs", name: "NestJS" },
+  { icon: "express", name: "ExpressJS" },
+  { icon: "nextjs", name: "NextJS" },
+  { icon: "wordpress", name: "WordPress" },
+  { icon: "shopify", name: "Shopify" },
 ];
 
 const rowB = [
-  { icon: 'html', name: 'HTML5' },
-  { icon: 'css', name: 'CSS3' },
-  { icon: 'javascript', name: 'JavaScript' },
-  { icon: 'typescript', name: 'TypeScript' },
-  { icon: 'redux', name: 'Redux' },
-  { icon: 'tailwind', name: 'Tailwind' },
-  { icon: 'wordpress', name: 'WordPress' }
+  { icon: "html", name: "HTML5" },
+  { icon: "css", name: "CSS3" },
+  { icon: "javascript", name: "JavaScript" },
+  { icon: "typescript", name: "TypeScript" },
+  { icon: "redux", name: "Redux" },
+  { icon: "tailwind", name: "Tailwind" },
+  { icon: "wordpress", name: "WordPress" },
 ];
 
 export default function Marquee() {
   return (
-    <div className="relative overflow-hidden bg-white py-20 border-y border-gray-200">
+    <div className="relative overflow-hidden bg-gradient-to-b from-orange-50/40 via-amber-50/20 to-white py-20 border-y border-orange-100/80 font-sans">
+      {/* Background Soft Glow Flares */}
+      <div className="absolute -top-32 left-0 w-[500px] h-[500px] bg-orange-300/20 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute -bottom-32 right-0 w-[500px] h-[500px] bg-amber-300/20 rounded-full blur-[160px] pointer-events-none" />
 
-      {/* Background Glow */}
-      <div className="absolute -top-32 left-0 w-[500px] h-[500px] bg-indigo-400 rounded-full blur-[160px] opacity-20 pointer-events-none" />
-
-      <div className="absolute -bottom-32 right-0 w-[500px] h-[500px] bg-cyan-500 rounded-full blur-[160px] opacity-20 pointer-events-none" />
-
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:60px_60px] opacity-50" />
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(249,115,22,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(249,115,22,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
       <div className="relative z-10 flex flex-col items-center gap-12">
-
-        {/* Header */}
-        <div className="text-center px-6">
-
-          <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-indigo-600">
-            Core Technologies
+        {/* Header with signature 2-tone Title format */}
+        <div className="text-center px-6 space-y-3">
+          <span className="inline-flex items-center rounded-full border border-orange-200/80 bg-orange-50 px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-[0.25em] text-orange-600 shadow-sm">
+            ✦ Core Technologies
           </span>
 
-          <h2 className="mt-6 text-4xl font-black tracking-tight text-gray-900">
-            Powering Modern Web Products
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+            <span className="text-gray-900">Powering Modern </span>
+            <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text text-transparent">
+              Web Products
+            </span>
           </h2>
 
-          <p className="mt-4 max-w-2xl text-gray-500 text-lg leading-8">
-            Modern technologies used to build scalable websites,
-            enterprise portals, SaaS platforms, and high-performance
-            digital products.
+          <p className="max-w-2xl text-gray-600 text-base sm:text-lg leading-relaxed mx-auto font-light">
+            Modern technologies used to build scalable websites, enterprise portals, SaaS platforms, and high-performance digital products.
           </p>
-
         </div>
 
-        {/* Marquee */}
+        {/* Marquee Rows */}
         <div
           className="relative w-full overflow-hidden"
           style={{
@@ -137,87 +134,41 @@ export default function Marquee() {
               "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
           }}
         >
-
           {/* Row 1 */}
           <div className="group overflow-hidden">
-
             <div className="flex gap-6 pt-5 animate-marquee group-hover:[animation-play-state:paused]">
-
               {[...rowA, ...rowA].map((item, index) => (
-
                 <div
                   key={index}
-                  className="
-              flex items-center gap-3
-              rounded-2xl
-              border border-gray-100
-              bg-white
-              px-6 py-4
-              
-              transition-all duration-300
-              hover:-translate-y-1
-              hover:border-indigo-300
-              
-              hover:shadow-indigo-100
-              "
+                  className="flex items-center gap-3 rounded-2xl border border-orange-100/90 bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-orange-100/60 cursor-pointer"
                 >
-                  <div className="text-2xl text-indigo-600">
-                    {icons[item.icon]}
-                  </div>
-
-                  <span className="font-semibold text-gray-700">
+                  <div className="text-2xl">{icons[item.icon]}</div>
+                  <span className="font-semibold text-gray-800 text-sm">
                     {item.name}
                   </span>
                 </div>
-
               ))}
-
             </div>
-
           </div>
 
           {/* Row 2 */}
           <div className="group overflow-hidden mt-6">
-
             <div className="flex gap-6 pt-5 animate-marquee-reverse group-hover:[animation-play-state:paused]">
-
               {[...rowB, ...rowB].map((item, index) => (
-
                 <div
                   key={index}
-                  className="
-              flex items-center gap-3
-              rounded-2xl
-              border border-gray-100
-              bg-white
-              px-6 py-4
-              
-              transition-all duration-300
-              hover:-translate-y-1
-              hover:border-cyan-300
-              
-              hover:shadow-cyan-100
-              "
+                  className="flex items-center gap-3 rounded-2xl border border-orange-100/90 bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-amber-100/60 cursor-pointer"
                 >
-                  <div className="text-2xl text-cyan-600">
-                    {icons[item.icon]}
-                  </div>
-
-                  <span className="font-semibold text-gray-700">
+                  <div className="text-2xl">{icons[item.icon]}</div>
+                  <span className="font-semibold text-gray-800 text-sm">
                     {item.name}
                   </span>
                 </div>
-
               ))}
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 }

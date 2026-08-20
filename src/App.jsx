@@ -17,7 +17,7 @@ export default function App() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray(".scroll-section");
-      
+
       sections.forEach((section) => {
         gsap.fromTo(section,
           { opacity: 0, y: 60 },

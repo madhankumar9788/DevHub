@@ -19,8 +19,6 @@ import {
   Cpu,
   School,
   Star,
-  CheckCircle2,
-  Search,
   ShoppingCart,
   Rocket,
   ArrowUpRight
@@ -62,8 +60,6 @@ const productsList = [
   }
 ];
 
-
-
 // Orbit 1: Inner (38%) - 6 colored school nodes
 const innerIcons = [
   { icon: GraduationCap, name: "KGCAS", fullName: "KG College of Arts & Science", top: "50%", left: "100%", color: "#38bdf8", bg: "bg-sky-950/90 border-sky-400 text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.4)]" },
@@ -103,7 +99,7 @@ const outerIcons = [
 ];
 
 function OrbitingTechCircles() {
-  const [activeTooltip, setActiveTooltip] = useState(null);
+  const [, setActiveTooltip] = useState(null);
 
   return (
     <div className="relative w-full aspect-square max-w-[540px] mx-auto [mask-image:radial-gradient(circle,black_45%,transparent_75%)]">
@@ -199,24 +195,27 @@ function OrbitingTechCircles() {
 
 export default function Products() {
   return (
-    <section id="products" className="bg-[#0b0f19] text-white py-24 px-6 md:px-10 scroll-section border-t border-slate-950 relative overflow-hidden">
+    <section id="products" className="bg-[#070510] text-white py-24 px-6 md:px-10 scroll-section border-t border-slate-900 relative overflow-hidden">
       {/* Decorative background radial ambient light */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
-            <span className="inline-flex items-center gap-2 bg-indigo-950/50 border border-indigo-500/30 px-3 py-1.5 rounded-full text-indigo-300 text-xs font-bold uppercase tracking-[0.2em]">
-              Digital Products
+            <span className="inline-flex items-center gap-2 bg-orange-950/60 border border-orange-500/30 px-3.5 py-1.5 rounded-full text-orange-300 text-xs font-mono font-bold uppercase tracking-[0.2em] shadow-md">
+              ✦ Digital Products
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight max-w-lg mt-3">
-              Ready-Made Digital Assets
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-lg mt-3">
+              <span className="text-white">Ready-Made </span>
+              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 bg-clip-text text-transparent">
+                Digital Assets
+              </span>
             </h2>
           </div>
-          <p className="text-slate-400 text-base max-w-sm leading-relaxed font-light">
+          <p className="text-slate-300 text-base max-w-sm leading-relaxed font-light">
             Boost your development workflow with pre-built, pixel-perfect templates and developer boilerplate modules.
           </p>
         </div>
@@ -228,7 +227,6 @@ export default function Products() {
             {productsList.map((p, idx) => {
               const Icon = p.icon;
 
-              // Glassy theme classes based on color config
               const bgClasses = p.color === "cyan"
                 ? "bg-cyan-950/40 border-cyan-500/20 text-cyan-400"
                 : p.color === "amber"
@@ -240,9 +238,7 @@ export default function Products() {
                   key={idx}
                   className="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 hover:border-indigo-500/30 hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 relative overflow-hidden group shadow-lg"
                 >
-                  {/* Compact Info block */}
                   <div className="flex gap-4 items-start max-w-md">
-                    {/* Glassy Theme Icon Box */}
                     <div className={`w-12 h-12 rounded-xl backdrop-blur-md flex items-center justify-center shrink-0 border ${bgClasses}`}>
                       <Icon className="w-6 h-6" />
                     </div>
@@ -260,7 +256,6 @@ export default function Products() {
                     </div>
                   </div>
 
-                  {/* Pricing / CTA segment */}
                   <div className="flex sm:flex-col justify-between items-center sm:items-end w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-slate-800/60">
                     <div className="text-left sm:text-right mb-0 sm:mb-3">
                       <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">Single License</span>
@@ -276,13 +271,10 @@ export default function Products() {
             })}
           </div>
 
-          {/* Right Column Concentric Orbiting circles (5 columns) */}
           <div className="lg:col-span-5 flex justify-center">
             <OrbitingTechCircles />
           </div>
         </div>
-
-       
 
       </div>
     </section>

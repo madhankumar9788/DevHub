@@ -7,12 +7,139 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
-  color: #111827;
+  background-color: #05020c;
+  color: #f8fafc;
   scroll-behavior: smooth;
-  color-scheme: light dark;
+  color-scheme: dark;
 }
 
+@keyframes beamPulse {
+
+  0%,
+  100% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 50px rgba(192, 132, 252, 0.5));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 45px rgba(168, 85, 247, 1)) drop-shadow(0 0 80px rgba(217, 70, 239, 0.8));
+  }
+}
+
+.animate-beam-pulse {
+  animation: beamPulse 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat1 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes badgeFloat2 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(-1.5deg);
+  }
+}
+
+@keyframes badgeFloat3 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(1.2deg);
+  }
+}
+
+@keyframes badgeFloat4 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-11px) rotate(-1deg);
+  }
+}
+
+.animate-badge-float-1 {
+  animation: badgeFloat1 5s ease-in-out infinite;
+}
+
+.animate-badge-float-2 {
+  animation: badgeFloat2 6s ease-in-out infinite 0.5s;
+}
+
+.animate-badge-float-3 {
+  animation: badgeFloat3 5.5s ease-in-out infinite 1s;
+}
+
+.animate-badge-float-4 {
+  animation: badgeFloat4 6.5s ease-in-out infinite 1.5s;
+}
+
+/* Glassmorphic Badge Glow & Testimonial Card */
+.glass-badge-glow {
+  background: rgba(18, 10, 38, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+.glass-badge-glow:hover {
+  border-color: rgba(192, 132, 252, 0.6);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 35px rgba(168, 85, 247, 0.35);
+}
+
+.glass-card-testimonial {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes lightningGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.8)) drop-shadow(0 0 30px rgba(234, 88, 12, 0.5));
+    transform: translateY(0px) rotate(12deg) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(249, 115, 22, 1)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.8));
+    transform: translateY(-10px) rotate(14deg) scale(1.05);
+  }
+}
+
+.animate-lightning-glow {
+  animation: lightningGlow 4s ease-in-out infinite;
+}
+
+@keyframes spinOrbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-orbit {
+  animation: spinOrbit 30s linear infinite;
+}
 
 @keyframes marquee {
   0% {
@@ -154,7 +281,7 @@ body {
   animation: led-pulse 2s ease-in-out infinite;
 }
 
-/* 3D Offset Outline Shadow Font Styles (Million Genius Coders format) */
+/* 3D Offset Outline Shadow Font Styles */
 .solid-glow-letter {
   color: var(--glow-color, #ffffff);
   position: relative;
@@ -168,7 +295,6 @@ body {
   top: 3px;
   z-index: -1;
   color: var(--glow-shadow, rgba(255, 255, 255, 0.2));
-  /* offset shadow color */
   -webkit-text-stroke: 0;
 }
 
@@ -187,7 +313,6 @@ body {
   z-index: -1;
   color: transparent;
   -webkit-text-stroke: 1.8px var(--glow-shadow, rgba(255, 255, 255, 0.2));
-  /* offset outline shadow color */
 }
 
 /* Orbit Rotations & Counter-Rotations */
