@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import BorderGlow from "./BorderGlow";
 
 function useCountUp(end, duration, active) {
   const [count, setCount] = useState(0);
@@ -57,142 +58,169 @@ export default function Stats() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
-    <section id="about" ref={ref} className="bg-white py-24 px-6 md:px-10 scroll-section relative border-t border-gray-100">
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header with signature 2-tone Title format */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <span className="inline-block text-orange-600 text-xs font-mono font-bold uppercase tracking-[0.2em] bg-orange-50 border border-orange-200/80 px-3.5 py-1.5 rounded-full shadow-sm">
+    <section id="about" ref={ref} className="bg-slate-50 text-slate-900 py-24 px-6 sm:px-10 lg:px-12 scroll-section relative overflow-hidden border-t border-slate-200">
+      {/* Light Radial Accents */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#3B82F6]/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10 font-sans">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3 font-space">
+          <span className="inline-block text-[#3B82F6] text-xs font-mono font-bold uppercase tracking-[0.2em] bg-white border border-slate-300 px-3.5 py-1.5 rounded-full shadow-sm">
             ✦ Why Hire Me
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-            <span className="text-gray-900">What Sets </span>
-            <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+            <span>What Sets </span>
+            <span className="text-[#3B82F6]">
               Me Apart
             </span>
           </h2>
-          <p className="text-gray-600 text-base leading-relaxed">
+          <p className="text-slate-600 text-base leading-relaxed font-sans font-normal">
             A reliable freelance developer who delivers pixel-perfect, high-performance websites for schools, businesses, and startups.
           </p>
         </div>
 
-        {/* Feature Cards Bento Grid */}
+        {/* Feature Cards Bento Grid with BorderGlow */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {/* Card 1 */}
-          <div className="bg-white rounded-3xl p-8 border border-gray-200/90 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:shadow-xl hover:border-orange-300 transition-all duration-300 md:col-span-2">
-            <div className="max-w-md space-y-3">
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 shadow-sm">
-                <PuzzleIcon className="w-6 h-6" />
+          <div className="md:col-span-2 h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 h-full">
+                <div className="max-w-md space-y-3">
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-sm">
+                    <PuzzleIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 font-space">Team Extension</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">Seamlessly integrate into your operations without the overhead of full-time hiring.</p>
+                </div>
+                <div className="flex -space-x-3 items-center bg-slate-100 border border-slate-200 px-4 py-3 rounded-2xl shadow-inner self-stretch md:self-auto justify-center">
+                  <div className="w-9 h-9 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center font-bold text-xs text-blue-700 shadow-sm">MK</div>
+                  <div className="w-9 h-9 rounded-full bg-indigo-100 border-2 border-white flex items-center justify-center font-bold text-xs text-indigo-700 shadow-sm">AS</div>
+                  <div className="w-9 h-9 rounded-full bg-cyan-100 border-2 border-white flex items-center justify-center font-bold text-xs text-cyan-700 shadow-sm">PD</div>
+                  <div className="w-9 h-9 rounded-full bg-[#3B82F6] border-2 border-white flex items-center justify-center font-bold text-xs text-white shadow-sm font-mono">+3</div>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Team Extension</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Seamlessly integrate into your operations without the overhead of full-time hiring.</p>
-            </div>
-            <div className="flex -space-x-3 items-center bg-gray-50 border border-gray-100 px-4 py-3 rounded-2xl shadow-inner self-stretch md:self-auto justify-center">
-              <div className="w-9 h-9 rounded-full bg-orange-100 border-2 border-white flex items-center justify-center font-bold text-xs text-orange-700 shadow-sm">MK</div>
-              <div className="w-9 h-9 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center font-bold text-xs text-amber-700 shadow-sm">AS</div>
-              <div className="w-9 h-9 rounded-full bg-purple-100 border-2 border-white flex items-center justify-center font-bold text-xs text-purple-700 shadow-sm">PD</div>
-              <div className="w-9 h-9 rounded-full bg-orange-600 border-2 border-white flex items-center justify-center font-bold text-xs text-white shadow-sm font-mono">+3</div>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-3xl p-8 border border-gray-200/90 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-orange-300 transition-all duration-300">
-            <div className="space-y-3">
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 shadow-sm">
-                <HeadphonesIcon className="w-6 h-6" />
+          <div className="h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-sm">
+                    <HeadphonesIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 font-space">Affordable Rates</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">Expert frontend development at freelance pricing — transparent, no hidden fees.</p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-2xl font-bold text-[#3B82F6] font-space">₹999<span className="text-xs text-slate-500 font-normal font-sans"> / hr</span></span>
+                  <span className="bg-[#3B82F6]/10 text-[#3B82F6] text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-[#3B82F6]/30 font-space">Best Rate</span>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Affordable Rates</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Expert frontend development at freelance pricing — transparent, no hidden fees.</p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-2xl font-black text-orange-600">₹999<span className="text-xs text-gray-400 font-normal font-sans"> / hr</span></span>
-              <span className="bg-orange-50 text-orange-700 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider border border-orange-200/60">Best Rate</span>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-3xl p-8 border border-gray-200/90 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-orange-300 transition-all duration-300 md:row-span-2">
-            <div className="space-y-3">
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 shadow-sm">
-                <ShieldIcon className="w-6 h-6" />
+          <div className="md:row-span-2 h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-sm">
+                    <ShieldIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 font-space">Reliable Partner</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">Long-term commitment to code quality, maintenance, and your project's success.</p>
+                </div>
+                <div className="mt-8 space-y-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-5 h-5 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/30 flex items-center justify-center text-[#3B82F6] text-xs font-bold">✓</div>
+                    <span className="text-xs text-slate-800 font-medium">Pixel-Perfect Layouts</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-5 h-5 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/30 flex items-center justify-center text-[#3B82F6] text-xs font-bold">✓</div>
+                    <span className="text-xs text-slate-800 font-medium">Clean, Modern Code</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-5 h-5 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/30 flex items-center justify-center text-[#3B82F6] text-xs font-bold">✓</div>
+                    <span className="text-xs text-slate-800 font-medium">Daily Git Updates</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-5 h-5 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/30 flex items-center justify-center text-[#3B82F6] text-xs font-bold">✓</div>
+                    <span className="text-xs text-slate-800 font-medium">Post-Launch Support</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Reliable Partner</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Long-term commitment to code quality, maintenance, and your project's success.</p>
-            </div>
-            <div className="mt-8 space-y-3">
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
-                <span className="text-xs text-gray-600 font-bold">Pixel-Perfect Layouts</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
-                <span className="text-xs text-gray-600 font-bold">Clean, Modern Code</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
-                <span className="text-xs text-gray-600 font-bold">Daily Git Updates</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</div>
-                <span className="text-xs text-gray-600 font-bold">Post-Launch Support</span>
-              </div>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 4 */}
-          <div className="bg-white rounded-3xl p-8 border border-gray-200/90 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-orange-300 transition-all duration-300">
-            <div className="space-y-3">
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 shadow-sm">
-                <ZapIcon className="w-6 h-6" />
+          <div className="h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-sm">
+                    <ZapIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 font-space">Fast Delivery</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">Agile workflow delivering production-ready designs ahead of schedule.</p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between font-space">
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">Average Dev Cycle</span>
+                  <span className="text-sm font-bold text-[#3B82F6]">3-5 Days</span>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Fast Delivery</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Agile workflow delivering production-ready designs ahead of schedule.</p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-wide">Average Dev Cycle</span>
-              <span className="text-sm font-black text-orange-600">3-5 Days</span>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 5 */}
-          <div className="bg-white rounded-3xl p-8 border border-gray-200/90 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-orange-300 transition-all duration-300">
-            <div className="space-y-3">
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 shadow-sm">
-                <CoinsIcon className="w-6 h-6" />
+          <div className="h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-sm">
+                    <CoinsIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 font-space">Flexible Plans</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">Pricing that adapts to your project scope, whether a page or a full portal.</p>
+                </div>
+                <div className="mt-5 space-y-2 font-mono">
+                  <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+                    <div className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] h-full w-[75%]" />
+                  </div>
+                  <div className="flex justify-between text-[9px] text-slate-500 font-bold uppercase tracking-wider">
+                    <span>Agile Milestones</span>
+                    <span>Split Pay</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Flexible Plans</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Pricing that adapts to your project scope, whether a page or a full portal.</p>
-            </div>
-            <div className="mt-5 space-y-2">
-              <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-gradient-to-r from-orange-500 to-amber-500 h-full w-[75%]" />
-              </div>
-              <div className="flex justify-between text-[9px] text-gray-400 font-bold uppercase tracking-wider">
-                <span>Agile Milestones</span>
-                <span>Split Pay</span>
-              </div>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 6 */}
-          <div className="bg-white rounded-3xl p-8 border border-gray-200/90 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:shadow-xl hover:border-orange-300 transition-all duration-300 md:col-span-2">
-            <div className="max-w-md space-y-3">
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 shadow-sm">
-                <ClockIcon className="w-6 h-6" />
+          <div className="md:col-span-2 h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 h-full">
+                <div className="max-w-md space-y-3">
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-sm">
+                    <ClockIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 font-space">Tight Deadlines</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">Rapid turnaround for admission launches, business events, and urgent campaigns.</p>
+                </div>
+                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider bg-slate-100 border border-slate-200 px-4 py-3 rounded-2xl shadow-inner self-stretch md:self-auto justify-center font-mono">
+                  <span className="bg-[#3B82F6]/10 text-[#3B82F6] px-2 py-1 rounded border border-[#3B82F6]/30">Design</span>
+                  <span className="text-slate-400">&rarr;</span>
+                  <span className="bg-[#3B82F6]/10 text-[#3B82F6] px-2 py-1 rounded border border-[#3B82F6]/30">Vite Dev</span>
+                  <span className="text-[#3B82F6] font-bold">&rarr;</span>
+                  <span className="bg-[#3B82F6] text-white px-2 py-1 rounded shadow-md">Launch</span>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Tight Deadlines</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Rapid turnaround for admission launches, business events, and urgent campaigns.</p>
-            </div>
-            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider bg-gray-50 border border-gray-100 px-4 py-3 rounded-2xl shadow-inner self-stretch md:self-auto justify-center">
-              <span className="bg-orange-50 text-orange-700 px-2 py-1 rounded border border-orange-200/60">Design</span>
-              <span className="text-gray-300">&rarr;</span>
-              <span className="bg-orange-50 text-orange-700 px-2 py-1 rounded border border-orange-200/60">Vite Dev</span>
-              <span className="text-gray-300">&rarr;</span>
-              <span className="bg-orange-600 text-white px-2 py-1 rounded shadow-sm">Launch</span>
-            </div>
+            </BorderGlow>
           </div>
         </div>
 
-        {/* Stats Bar */}
+        {/* Stats Bar with BorderGlow */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
           {stats.map((s, index) => {
             const descriptions = [
@@ -203,24 +231,23 @@ export default function Stats() {
             ];
 
             return (
-              <div
-                key={s.label}
-                className="relative bg-white border border-gray-200/90 rounded-2xl p-8 hover:shadow-xl hover:border-orange-300 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-sm"
-              >
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 shadow-sm font-bold">
-                      ✦
+              <div key={s.label} className="h-full">
+                <BorderGlow borderRadius={20} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+                  <div className="p-8 flex flex-col justify-between h-full">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] shadow-sm font-bold font-space">
+                        ✦
+                      </div>
+                      <span className="text-3xl font-bold text-slate-900 tracking-tight font-space">
+                        <StatValue value={s.value} suffix={s.suffix} active={inView} />
+                      </span>
                     </div>
-                    <span className="text-3xl font-black text-gray-900 tracking-tight">
-                      <StatValue value={s.value} suffix={s.suffix} active={inView} />
-                    </span>
-                  </div>
 
-                  <p className="text-gray-500 text-sm leading-relaxed font-light">
-                    {descriptions[index]}
-                  </p>
-                </div>
+                    <p className="text-slate-600 text-sm leading-relaxed font-normal">
+                      {descriptions[index]}
+                    </p>
+                  </div>
+                </BorderGlow>
               </div>
             );
           })}

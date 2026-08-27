@@ -1,361 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #05020c;
-  color: #f8fafc;
-  scroll-behavior: smooth;
-  color-scheme: dark;
+    font-family: 'Inter', sans-serif;
+    background-color: #0B1120;
+    color: #F8FAFC;
+    scroll-behavior: smooth;
+    color-scheme: dark;
 }
 
-@keyframes beamPulse {
+.font-space {
+    font-family: 'Space Grotesk', sans-serif;
+}
 
-  0%,
-  100% {
-    opacity: 0.7;
-    filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 50px rgba(192, 132, 252, 0.5));
+.font-sans {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Fade Animations */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
   }
-
-  50% {
+  100% {
     opacity: 1;
-    filter: drop-shadow(0 0 45px rgba(168, 85, 247, 1)) drop-shadow(0 0 80px rgba(217, 70, 239, 0.8));
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-.animate-beam-pulse {
-  animation: beamPulse 3s ease-in-out infinite;
-}
-
-@keyframes badgeFloat1 {
-
-  0%,
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
   100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-8px) rotate(1deg);
+    opacity: 1;
   }
 }
 
-@keyframes badgeFloat2 {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-10px) rotate(-1.5deg);
-  }
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes badgeFloat3 {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-6px) rotate(1.2deg);
-  }
-}
-
-@keyframes badgeFloat4 {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-11px) rotate(-1deg);
-  }
-}
-
-.animate-badge-float-1 {
-  animation: badgeFloat1 5s ease-in-out infinite;
-}
-
-.animate-badge-float-2 {
-  animation: badgeFloat2 6s ease-in-out infinite 0.5s;
-}
-
-.animate-badge-float-3 {
-  animation: badgeFloat3 5.5s ease-in-out infinite 1s;
-}
-
-.animate-badge-float-4 {
-  animation: badgeFloat4 6.5s ease-in-out infinite 1.5s;
-}
-
-/* Glassmorphic Badge Glow & Testimonial Card */
-.glass-badge-glow {
-  background: rgba(18, 10, 38, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.15);
-}
-
-.glass-badge-glow:hover {
-  border-color: rgba(192, 132, 252, 0.6);
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 35px rgba(168, 85, 247, 0.35);
-}
-
-.glass-card-testimonial {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-@keyframes lightningGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.8)) drop-shadow(0 0 30px rgba(234, 88, 12, 0.5));
-    transform: translateY(0px) rotate(12deg) scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 30px rgba(249, 115, 22, 1)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.8));
-    transform: translateY(-10px) rotate(14deg) scale(1.05);
-  }
-}
-
-.animate-lightning-glow {
-  animation: lightningGlow 4s ease-in-out infinite;
-}
-
-@keyframes spinOrbit {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-spin-orbit {
-  animation: spinOrbit 30s linear infinite;
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 @keyframes marquee-reverse {
-  0% {
-    transform: translateX(-50%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .animate-marquee {
-  animation: marquee 38s linear infinite;
+    animation: marquee 38s linear infinite;
 }
 
 .animate-marquee-reverse {
-  animation: marquee-reverse 38s linear infinite;
+    animation: marquee-reverse 38s linear infinite;
 }
 
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-12px);
-  }
+/* Solar Orbit Ring Animations */
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* 3D Cube & Custom Animations */
-.perspective-\[1000px\] {
-  perspective: 1000px;
-}
-
-.transform-style-3d {
-  transform-style: preserve-3d;
-}
-
-.translate-z-\[4rem\] {
-  transform: translateZ(4rem);
-}
-
-.cube-face-front {
-  transform: rotateY(0deg) translateZ(4rem);
-}
-
-.cube-face-back {
-  transform: rotateY(180deg) translateZ(4rem);
-}
-
-.cube-face-left {
-  transform: rotateY(-90deg) translateZ(4rem);
-}
-
-.cube-face-right {
-  transform: rotateY(90deg) translateZ(4rem);
-}
-
-.cube-face-top {
-  transform: rotateX(90deg) translateZ(4rem);
-}
-
-.cube-face-bottom {
-  transform: rotateX(-90deg) translateZ(4rem);
-}
-
-@keyframes cube-spin {
-  0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  50% {
-    transform: rotateX(180deg) rotateY(360deg) rotateZ(90deg);
-  }
-
-  100% {
-    transform: rotateX(360deg) rotateY(720deg) rotateZ(180deg);
-  }
-}
-
-/* Scroll Entrance Animation Classes */
-.animate-up {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-up.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Futuristic Glowing CPU Animations */
-@keyframes chip-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.25), 0 0 30px rgba(99, 102, 241, 0.1);
-  }
-
-  50% {
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.5), 0 0 45px rgba(99, 102, 241, 0.2);
-  }
-}
-
-@keyframes led-pulse {
-
-  0%,
-  100% {
-    opacity: 0.6;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-.animate-chip-glow {
-  animation: chip-glow 4s ease-in-out infinite;
-}
-
-.animate-led-pulse {
-  animation: led-pulse 2s ease-in-out infinite;
-}
-
-/* 3D Offset Outline Shadow Font Styles */
-.solid-glow-letter {
-  color: var(--glow-color, #ffffff);
-  position: relative;
-  display: inline-block;
-}
-
-.solid-glow-letter::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 3px;
-  top: 3px;
-  z-index: -1;
-  color: var(--glow-shadow, rgba(255, 255, 255, 0.2));
-  -webkit-text-stroke: 0;
-}
-
-.outline-glow-text {
-  color: transparent;
-  -webkit-text-stroke: 1.8px var(--glow-color, #ffffff);
-  position: relative;
-  display: inline-block;
-}
-
-.outline-glow-text::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 3px;
-  top: 3px;
-  z-index: -1;
-  color: transparent;
-  -webkit-text-stroke: 1.8px var(--glow-shadow, rgba(255, 255, 255, 0.2));
-}
-
-/* Orbit Rotations & Counter-Rotations */
-@keyframes orbit-rotate-cw {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes orbit-rotate-ccw {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(-360deg);
-  }
+@keyframes orbit-ccw {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
 
 .animate-orbit-slow {
-  animation: orbit-rotate-cw 40s linear infinite;
+  animation: orbit-cw 40s linear infinite;
 }
-
 .animate-orbit-counter-slow {
-  animation: orbit-rotate-ccw 40s linear infinite;
+  animation: orbit-ccw 40s linear infinite;
 }
 
 .animate-orbit-mid {
-  animation: orbit-rotate-ccw 30s linear infinite;
+  animation: orbit-ccw 30s linear infinite;
 }
-
 .animate-orbit-counter-mid {
-  animation: orbit-rotate-cw 30s linear infinite;
+  animation: orbit-cw 30s linear infinite;
 }
 
 .animate-orbit-fast {
-  animation: orbit-rotate-cw 20s linear infinite;
+  animation: orbit-cw 20s linear infinite;
 }
-
 .animate-orbit-counter-fast {
-  animation: orbit-rotate-ccw 20s linear infinite;
+  animation: orbit-ccw 20s linear infinite;
 }

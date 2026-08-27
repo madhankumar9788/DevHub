@@ -1,112 +1,86 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import React, { useRef, useState } from "react";
 import Logo from "./Logo";
-
-gsap.registerPlugin(ScrollTrigger);
+import ElectricBorder from "./ElectricBorder";
 
 function LaptopScrollingPreview() {
+  const [activeTab, setActiveTab] = useState("kgisl");
+
+  const previews = {
+    kgisl: {
+      name: "KGiSL Educational Portal",
+      tag: "College Website • Live",
+      url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    },
+    skillryt: {
+      name: "SkillRyt EdTech Platform",
+      tag: "Learning Management System",
+      url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+    },
+    tsa: {
+      name: "TSA College Portal",
+      tag: "Institutional Portal",
+      url: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    },
+  };
+
+  const current = previews[activeTab];
+
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md shrink-0 z-10 flex flex-col items-center group my-2 lg:my-0">
-      <style>{`
-        @keyframes scrollVerticalPreview {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-50%); }
-        }
-        .animate-scroll-vertical {
-          animation: scrollVerticalPreview 12s linear infinite;
-        }
-        .animate-scroll-vertical:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
-      <div className="relative w-full bg-neutral-900 rounded-t-2xl border-4 border-neutral-800 p-2 shadow-2xl overflow-hidden aspect-[16/10]">
-
-        <div className="absolute top-1 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 bg-neutral-950 px-3 py-0.5 rounded-b-md border-b border-neutral-800">
-          <div className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
-          <div className="w-1 h-1 rounded-full bg-blue-500/80 animate-pulse" />
-        </div>
-
-        <div className="bg-neutral-950 px-3 py-1.5 rounded-t-lg border-b border-neutral-800/80 flex items-center justify-between z-20 relative">
+    <div className="relative max-w-sm w-full mx-auto lg:mx-0 font-sans">
+      <div className="relative bg-[#111827] border border-[#334155] rounded-t-2xl p-2.5 shadow-2xl overflow-hidden">
+        <div className="flex items-center justify-between px-2 pb-2 border-b border-[#334155] text-[10px] text-[#94A3B8] font-mono">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
           </div>
-          <div className="bg-neutral-900 border border-neutral-800 text-[9px] font-mono text-neutral-300 px-3 py-0.5 rounded-md flex items-center gap-1.5 w-40 sm:w-48 truncate">
-            <span className="text-emerald-400">🔒</span>
-            <span className="truncate">https://devhub.com/projects</span>
-          </div>
-          <div className="w-4" />
+          <span className="truncate max-w-[140px] text-[#F8FAFC] font-bold">{current.name}</span>
+          <span className="text-[#3B82F6] font-bold">● LIVE</span>
         </div>
 
-        <div className="relative h-[calc(100%-28px)] overflow-hidden bg-slate-950 rounded-b-lg">
-          <div className="space-y-3 p-3 animate-scroll-vertical">
-            <div className="bg-gradient-to-r from-indigo-900/90 to-slate-900 border border-indigo-500/30 p-3 rounded-xl shadow-md">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">🎓 KGiSL MICRO COLLEGE</span>
-                <span className="text-[9px] font-mono bg-indigo-500/20 text-indigo-200 px-1.5 py-0.5 rounded">LIVE SITE</span>
-              </div>
-              <div className="h-2 w-3/4 bg-white/40 rounded mb-1.5" />
-              <div className="h-1.5 w-1/2 bg-white/20 rounded" />
-              <div className="mt-3 grid grid-cols-3 gap-1.5">
-                <div className="h-8 bg-indigo-950/80 rounded border border-indigo-500/20" />
-                <div className="h-8 bg-indigo-950/80 rounded border border-indigo-500/20" />
-                <div className="h-8 bg-indigo-950/80 rounded border border-indigo-500/20" />
-              </div>
-            </div>
+        <div className="relative h-48 sm:h-56 overflow-hidden rounded-b-lg bg-[#0B1120] group">
+          <img
+            src={current.url}
+            alt={current.name}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
 
-            <div className="bg-slate-900 border border-slate-800 p-3 rounded-xl shadow-md">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">🏛️ KGiSL IIM INSTITUTION</span>
-                <span className="text-[9px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">ONLINE</span>
-              </div>
-              <div className="h-2 w-2/3 bg-white/40 rounded mb-1.5" />
-              <div className="h-1.5 w-5/6 bg-white/20 rounded mb-3" />
-              <div className="h-10 bg-gradient-to-r from-emerald-950 to-slate-900 rounded border border-emerald-500/30 p-2 flex items-center justify-between">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-ping" />
-                <div className="h-2 w-16 bg-white/30 rounded" />
-                <div className="h-4 w-10 bg-emerald-500/40 rounded-full" />
-              </div>
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-[#0B1120]/20 to-transparent" />
 
-            <div className="bg-slate-900 border border-purple-500/30 p-3 rounded-xl shadow-md">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold text-purple-300 uppercase tracking-wider">⭐ SKILLRYT PLATFORM</span>
-                <span className="text-[9px] font-mono bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded">FAST</span>
-              </div>
-              <div className="h-2 w-4/5 bg-white/40 rounded mb-1.5" />
-              <div className="h-1.5 w-1/3 bg-white/20 rounded mb-2" />
-              <div className="h-9 bg-slate-950 rounded border border-purple-500/20 p-2 flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-purple-600/30" />
-                <div className="space-y-1 flex-1">
-                  <div className="h-1.5 w-full bg-white/30 rounded" />
-                  <div className="h-1 w-2/3 bg-white/20 rounded" />
-                </div>
-              </div>
+          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-[#111827]/90 backdrop-blur-md p-2.5 rounded-xl border border-[#334155]">
+            <div>
+              <p className="text-[10px] font-mono text-[#06B6D4] font-bold uppercase">{current.tag}</p>
+              <p className="text-xs font-bold text-[#F8FAFC] truncate max-w-[160px] font-space">{current.name}</p>
             </div>
-
-            <div className="bg-gradient-to-r from-indigo-900/90 to-slate-900 border border-indigo-500/30 p-3 rounded-xl shadow-md">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">🎓 KGiSL MICRO COLLEGE</span>
-                <span className="text-[9px] font-mono bg-indigo-500/20 text-indigo-200 px-1.5 py-0.5 rounded">LIVE SITE</span>
-              </div>
-              <div className="h-2 w-3/4 bg-white/40 rounded mb-1.5" />
-              <div className="h-1.5 w-1/2 bg-white/20 rounded" />
-            </div>
-
+            <a
+              href="#work"
+              className="text-[10px] bg-[#3B82F6] text-white px-2.5 py-1 rounded-md font-bold hover:bg-blue-600 transition font-space"
+            >
+              View
+            </a>
           </div>
         </div>
-
       </div>
 
-      <div className="relative w-[106%] h-3.5 bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 rounded-b-xl border-t border-neutral-700 shadow-xl flex justify-center">
-        <div className="w-14 h-1 bg-neutral-700 rounded-b-md" />
+      <div className="bg-[#111827] h-3 rounded-b-xl max-w-[85%] mx-auto shadow-md flex items-center justify-center border-x border-b border-[#334155]">
+        <div className="w-12 h-1 bg-[#334155] rounded-full" />
       </div>
 
-      <div className="w-[85%] h-3.5 bg-indigo-500/25 rounded-full blur-md -mt-1 pointer-events-none" />
+      <div className="flex items-center justify-center gap-2 mt-4 font-mono">
+        {Object.keys(previews).map((key) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase transition ${
+              activeTab === key
+                ? "bg-[#3B82F6] text-white shadow-sm"
+                : "bg-[#111827] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#334155]"
+            }`}
+          >
+            {key}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -116,241 +90,140 @@ export default function Footer() {
 
   const scrollTo = (e, id) => {
     e.preventDefault();
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
-
-  useEffect(() => {
-    gsap.fromTo(
-      footerRef.current,
-      {
-        y: 80,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 85%",
-        },
-      }
-    );
-  }, []);
 
   return (
     <footer
       ref={footerRef}
       id="contact"
-      className="bg-[#070510] text-white pt-24 pb-12 px-4 sm:px-6 md:px-10 border-t border-slate-900"
+      className="bg-[#0B1120] text-[#F8FAFC] py-20 md:py-24 px-6 sm:px-10 lg:px-12 border-t border-[#334155] font-sans"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Top CTA Banner with ElectricBorder */}
+        <div className="mb-16 sm:mb-20">
+          <ElectricBorder color="#3B82F6" speed={1} chaos={0.12} borderRadius={24}>
+            <div className="relative bg-[#111827] text-[#F8FAFC] border border-[#334155] rounded-3xl p-8 sm:p-12 md:p-14 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#3B82F6]/10 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="relative bg-[#0e0a1f] text-white border -mt-80 border-slate-800/90 rounded-3xl p-8 sm:p-12 md:p-14 mb-16 sm:mb-20 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+              <div className="relative z-10 max-w-xl space-y-4 font-space">
+                <div className="inline-flex items-center gap-2 bg-[#0B1120] border border-[#334155] px-3.5 py-1.5 rounded-full text-xs font-mono text-[#06B6D4] font-bold shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-ping" />
+                  LET'S CREATE SOMETHING EXTRAORDINARY
+                </div>
 
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(249,115,22,0.12),transparent_60%)] pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none" />
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.15]">
+                  <span className="text-[#F8FAFC]">Ready to Build </span>
+                  <br />
+                  <span className="text-[#3B82F6]">
+                    Your Next Website?
+                  </span>
+                </h2>
 
-          <div className="relative z-10 max-w-xl space-y-4">
-            <div className="inline-flex items-center gap-2 bg-orange-950/60 border border-orange-500/30 px-3.5 py-1.5 rounded-full text-xs font-mono text-orange-300 font-bold shadow-md">
-              <span className="w-2 h-2 rounded-full bg-orange-400 animate-ping" />
-              LET'S CREATE SOMETHING EXTRAORDINARY
-            </div>
+                <p className="text-[#94A3B8] text-sm sm:text-base leading-relaxed max-w-lg font-sans font-normal">
+                  I develop modern React, Three.js, Laravel and WordPress websites for colleges, institutes, and ambitious businesses.
+                </p>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15]">
-              <span className="text-white">Ready to Build </span>
-              <br />
-              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 bg-clip-text text-transparent">
-                Your Next Website?
-              </span>
-            </h2>
-
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg font-sans">
-              I develop modern React, Three.js, Laravel and WordPress websites for colleges, institutes, and ambitious businesses.
-            </p>
-
-            <div className="relative z-10 mt-6 flex flex-wrap items-center gap-3.5 shrink-0 w-full sm:w-auto">
-              <a
-                href="mailto:info@devhub.com"
-                className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 hover:from-orange-400 hover:to-amber-400 text-white px-8 py-3.5 rounded-full font-bold text-sm shadow-[0_0_30px_rgba(249,115,22,0.4)] flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03]"
-              >
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                <span>Email Me</span>
-              </a>
-
-              <a
-                href="tel:+919876543210"
-                className="bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 px-8 py-3.5 rounded-full font-semibold text-sm shadow-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03]"
-              >
-                <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                <span>Call Me</span>
-              </a>
-            </div>
-          </div>
-
-          <LaptopScrollingPreview />
-
-        </div>
-
-        <div className="relative bg-[#0a0714] border border-slate-800/90 rounded-3xl p-8 sm:p-12 lg:p-14 overflow-hidden shadow-2xl flex flex-col justify-between min-h-[420px]">
-
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-[140px] pointer-events-none" />
-
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 pb-12">
-
-            <div className="lg:col-span-4 space-y-4">
-              <Logo light={true} />
-
-              <p className="text-slate-400 text-sm leading-relaxed max-w-sm font-sans">
-                DEV HUB is a modern React, Tailwind CSS and Next.js based UI & web development studio.
-              </p>
-            </div>
-
-            <div className="lg:col-span-2 space-y-3.5">
-              <h4 className="text-sm font-bold text-white tracking-wide">About Us</h4>
-              <ul className="space-y-2 text-slate-400 text-xs sm:text-sm font-sans">
-                <li>
-                  <a href="#hero" onClick={(e) => scrollTo(e, "hero")} className="hover:text-white transition">
-                    Company History
+                <div className="relative z-10 mt-6 flex flex-wrap items-center gap-3.5 shrink-0 w-full sm:w-auto font-space">
+                  <a
+                    href="mailto:info@devhub.com"
+                    className="bg-[#3B82F6] hover:bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold text-sm shadow-[0_0_30px_rgba(59,130,246,0.5)] flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03]"
+                  >
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <span>Email Me</span>
                   </a>
-                </li>
-                <li>
-                  <a href="#about" onClick={(e) => scrollTo(e, "about")} className="hover:text-white transition">
-                    Meet the Team
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" onClick={(e) => scrollTo(e, "services")} className="hover:text-white transition">
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="#work" onClick={(e) => scrollTo(e, "work")} className="hover:text-white transition">
-                    Portfolio
-                  </a>
-                </li>
-              </ul>
-            </div>
 
-            <div className="lg:col-span-3 space-y-3.5">
-              <h4 className="text-sm font-bold text-white tracking-wide">Helpful Links</h4>
-              <ul className="space-y-2 text-slate-400 text-xs sm:text-sm font-sans">
-                <li>
-                  <a href="#faqs" onClick={(e) => scrollTo(e, "work")} className="hover:text-white transition">
-                    FAQs & Case Studies
+                  <a
+                    href="tel:+919876543210"
+                    className="bg-[#0B1120] hover:bg-[#0B1120]/80 text-white border border-[#334155] px-8 py-3.5 rounded-full font-semibold text-sm shadow-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.03]"
+                  >
+                    <svg className="w-4 h-4 text-[#3B82F6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span>Call Me</span>
                   </a>
-                </li>
-                <li>
-                  <a href="#support" onClick={(e) => scrollTo(e, "contact")} className="hover:text-white transition">
-                    24/7 Client Support
-                  </a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <a href="mailto:info@devhub.com" className="hover:text-white transition">
-                    Live Chat
-                  </a>
-                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_6px_rgba(59,130,246,0.8)]" />
-                </li>
-              </ul>
-            </div>
-
-            <div className="lg:col-span-3 space-y-3.5">
-              <h4 className="text-sm font-bold text-white tracking-wide">Contact Us</h4>
-              <div className="space-y-2.5 text-slate-400 text-xs sm:text-sm font-sans">
-                <a href="mailto:info@devhub.com" className="flex items-center gap-2.5 hover:text-white transition">
-                  <Mail className="w-4 h-4 text-indigo-400 shrink-0" />
-                  <span className="truncate">info@devhub.com</span>
-                </a>
-                <a href="tel:+919876543210" className="flex items-center gap-2.5 hover:text-white transition">
-                  <Phone className="w-4 h-4 text-indigo-400 shrink-0" />
-                  <span>+91 98765 43210</span>
-                </a>
-                <div className="flex items-center gap-2.5">
-                  <MapPin className="w-4 h-4 text-indigo-400 shrink-0" />
-                  <span>Coimbatore, India</span>
                 </div>
               </div>
+
+              <LaptopScrollingPreview />
             </div>
-
-          </div>
-
-          <div className="relative my-4 flex items-center justify-center select-none pointer-events-none overflow-hidden">
-            <style>{`
-              .watermark-text-stroke {
-                -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
-                color: transparent;
-              }
-            `}</style>
-            <h2 className="watermark-text-stroke text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-extrabold uppercase tracking-widest text-center whitespace-nowrap leading-none transition-all">
-              DEV HUB
-            </h2>
-          </div>
-
-          <div className="relative z-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-indigo-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
-                aria-label="Facebook"
-              >
-                <Globe className="w-4 h-4" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-pink-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-sky-500 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-purple-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
-                aria-label="GitHub"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-blue-600 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-              </a>
-            </div>
-
-            <p className="text-slate-500 text-xs sm:text-sm font-sans text-center sm:text-right">
-              © {new Date().getFullYear()} DEVHUB. All rights reserved.
-            </p>
-
-          </div>
-
+          </ElectricBorder>
         </div>
 
+        {/* Footer Links Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#334155]">
+          <div className="lg:col-span-4 space-y-4">
+            <a href="#hero" onClick={(e) => scrollTo(e, "hero")}>
+              <Logo light={true} />
+            </a>
+            <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed max-w-sm font-sans font-normal">
+              DEV HUB — Freelance Frontend Developer specializing in institutional college portals, business websites, and React web apps.
+            </p>
+          </div>
+
+          <div className="lg:col-span-2 space-y-3.5">
+            <h4 className="text-sm font-bold text-[#F8FAFC] tracking-wide font-space">Quick Links</h4>
+            <ul className="space-y-2 text-[#94A3B8] text-xs sm:text-sm font-sans">
+              <li>
+                <a href="#about" onClick={(e) => scrollTo(e, "about")} className="hover:text-[#3B82F6] transition">
+                  About Me
+                </a>
+              </li>
+              <li>
+                <a href="#services" onClick={(e) => scrollTo(e, "services")} className="hover:text-[#3B82F6] transition">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#products" onClick={(e) => scrollTo(e, "products")} className="hover:text-[#3B82F6] transition">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="#work" onClick={(e) => scrollTo(e, "work")} className="hover:text-[#3B82F6] transition">
+                  Portfolio
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3 space-y-3.5">
+            <h4 className="text-sm font-bold text-[#F8FAFC] tracking-wide font-space">Helpful Links</h4>
+            <ul className="space-y-2 text-[#94A3B8] text-xs sm:text-sm font-sans">
+              <li>
+                <a href="#work" onClick={(e) => scrollTo(e, "work")} className="hover:text-[#3B82F6] transition">
+                  FAQs & Case Studies
+                </a>
+              </li>
+              <li>
+                <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="hover:text-[#3B82F6] transition">
+                  24/7 Client Support
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <a href="mailto:info@devhub.com" className="hover:text-[#3B82F6] transition">
+                  info@devhub.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3 space-y-3.5">
+            <h4 className="text-sm font-bold text-[#F8FAFC] tracking-wide font-space">Contact Information</h4>
+            <div className="space-y-2 text-[#94A3B8] text-xs sm:text-sm font-sans">
+              <p>Coimbatore, Tamil Nadu, India</p>
+              <p className="text-[#06B6D4] font-bold font-mono">Available for Freelance Projects</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Copyright Row */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#94A3B8] text-xs font-sans">
+          <p>© {new Date().getFullYear()} DEV HUB. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <a href="#hero" onClick={(e) => scrollTo(e, "hero")} className="hover:text-[#F8FAFC] transition">
+              Back to Top ↑
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

@@ -1,4 +1,5 @@
 import { GraduationCap, Building2, BookOpen, Atom, ArrowRight } from "lucide-react";
+import BorderGlow from "./BorderGlow";
 
 const services = [
   {
@@ -40,94 +41,113 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="bg-white py-24 px-6 md:px-10 scroll-section relative border-t border-gray-100">
+    <section id="services" className="bg-slate-50 text-slate-900 py-24 px-6 sm:px-10 lg:px-12 scroll-section relative overflow-hidden border-t border-slate-200 font-sans">
+      {/* Light Ambient Glow */}
+      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-[#3B82F6]/10 rounded-full blur-[140px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header with signature 2-tone Title format */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 font-space">
           <div className="space-y-3">
-            <span className="inline-block text-orange-600 text-xs font-mono font-bold uppercase tracking-[0.2em] bg-orange-50 border border-orange-200/80 px-3.5 py-1.5 rounded-full shadow-sm">
+            <span className="inline-block text-[#3B82F6] text-xs font-mono font-bold uppercase tracking-[0.2em] bg-white border border-slate-300 px-3.5 py-1.5 rounded-full shadow-sm">
               ✦ Services
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-lg">
-              <span className="text-gray-900">What I Can </span>
-              <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-lg text-slate-900">
+              <span>What I Can </span>
+              <span className="text-[#3B82F6]">
                 Build for You
               </span>
             </h2>
           </div>
-          <p className="text-gray-600 text-base max-w-sm leading-relaxed font-light">
+          <p className="text-slate-600 text-base max-w-sm leading-relaxed font-sans font-normal">
             End-to-end frontend solutions tailored for educational institutions, businesses, and digital platforms.
           </p>
         </div>
 
-        {/* Cards Asymmetric Layout */}
+        {/* Cards Asymmetric Layout with BorderGlow */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Card 1 */}
-          <div className="lg:col-span-4 bg-white border border-gray-200/90 rounded-3xl p-8 hover:border-orange-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
-            <div>
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-5 shadow-sm">
-                <Icon0 className="w-6 h-6" />
+          <div className="lg:col-span-4 h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] mb-5 shadow-sm">
+                    <Icon0 className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 font-space">{s[0].title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed font-sans font-normal">{s[0].description}</p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#3B82F6] font-mono">{s[0].price}</span>
+                  <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-[#3B82F6] group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{s[0].title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed font-light">{s[0].description}</p>
-            </div>
-            <div className="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-orange-600 font-mono">{s[0].price}</span>
-              <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-orange-500 group-hover:border-orange-500 group-hover:text-white transition-all shadow-sm">
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 2 */}
-          <div className="lg:col-span-8 bg-white border border-gray-200/90 rounded-3xl p-8 hover:border-orange-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
-            <div>
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-5 shadow-sm">
-                <Icon1 className="w-6 h-6" />
+          <div className="lg:col-span-8 h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] mb-5 shadow-sm">
+                    <Icon1 className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 font-space">{s[1].title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed font-sans font-normal max-w-xl">{s[1].description}</p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#3B82F6] font-mono">{s[1].price}</span>
+                  <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-[#3B82F6] group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{s[1].title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed font-light max-w-xl">{s[1].description}</p>
-            </div>
-            <div className="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-orange-600 font-mono">{s[1].price}</span>
-              <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-orange-500 group-hover:border-orange-500 group-hover:text-white transition-all shadow-sm">
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 3 */}
-          <div className="lg:col-span-8 bg-white border border-gray-200/90 rounded-3xl p-8 hover:border-orange-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
-            <div>
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-5 shadow-sm">
-                <Icon2 className="w-6 h-6" />
+          <div className="lg:col-span-8 h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] mb-5 shadow-sm">
+                    <Icon2 className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 font-space">{s[2].title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed font-sans font-normal max-w-xl">{s[2].description}</p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#3B82F6] font-mono">{s[2].price}</span>
+                  <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-[#3B82F6] group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{s[2].title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed font-light max-w-xl">{s[2].description}</p>
-            </div>
-            <div className="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-orange-600 font-mono">{s[2].price}</span>
-              <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-orange-500 group-hover:border-orange-500 group-hover:text-white transition-all shadow-sm">
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+            </BorderGlow>
           </div>
 
           {/* Card 4 */}
-          <div className="lg:col-span-4 bg-white border border-gray-200/90 rounded-3xl p-8 hover:border-orange-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
-            <div>
-              <div className="w-12 h-12 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-5 shadow-sm">
-                <Icon3 className="w-6 h-6" />
+          <div className="lg:col-span-4 h-full">
+            <BorderGlow borderRadius={24} backgroundColor="#ffffff" colors={['#3B82F6', '#06B6D4', '#60A5FA']} className="h-full">
+              <div className="p-8 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-xl flex items-center justify-center text-[#3B82F6] mb-5 shadow-sm">
+                    <Icon3 className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 font-space">{s[3].title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed font-sans font-normal">{s[3].description}</p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#3B82F6] font-mono">{s[3].price}</span>
+                  <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-[#3B82F6] group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{s[3].title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed font-light">{s[3].description}</p>
-            </div>
-            <div className="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-orange-600 font-mono">{s[3].price}</span>
-              <a href="#contact" onClick={(e) => scrollTo(e, "contact")} className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-orange-500 group-hover:border-orange-500 group-hover:text-white transition-all shadow-sm">
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+            </BorderGlow>
           </div>
         </div>
       </div>

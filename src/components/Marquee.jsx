@@ -22,12 +22,12 @@ const icons = {
     </svg>
   ),
   express: (
-    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-[#3B82F6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
       <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
     </svg>
   ),
   nextjs: (
-    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="#111827">
+    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 fill-slate-900" viewBox="0 0 24 24">
       <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 14.5l-3.5-5v5H9v-7h1.5l3.5 5v-5h1.5v7H13z" />
     </svg>
   ),
@@ -64,12 +64,12 @@ const icons = {
     </svg>
   ),
   redux: (
-    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 text-[#06B6D4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     </svg>
   ),
   tailwind: (
-    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="#38bdf8">
+    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="#06b6d4">
       <path d="M12 6.086c-2.316-2.316-6.07-2.316-8.386 0-2.316 2.316-2.316 6.07 0 8.386l8.386 8.386 8.386-8.386c2.316-2.316 2.316-6.07 0-8.386-2.316-2.316-6.07-2.316-8.386 0z" />
     </svg>
   ),
@@ -97,53 +97,46 @@ const rowB = [
 
 export default function Marquee() {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-orange-50/40 via-amber-50/20 to-white py-20 border-y border-orange-100/80 font-sans">
-      {/* Background Soft Glow Flares */}
-      <div className="absolute -top-32 left-0 w-[500px] h-[500px] bg-orange-300/20 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute -bottom-32 right-0 w-[500px] h-[500px] bg-amber-300/20 rounded-full blur-[160px] pointer-events-none" />
+    <section className="relative w-full overflow-hidden bg-slate-50 text-slate-900 py-20 md:py-24 border-y border-slate-200 font-sans px-0">
+      {/* Light Radial Ambient Accents */}
+      <div className="absolute -top-32 left-0 w-[500px] h-[500px] bg-[#3B82F6]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute -bottom-32 right-0 w-[500px] h-[500px] bg-[#06B6D4]/10 rounded-full blur-[160px] pointer-events-none" />
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(249,115,22,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(249,115,22,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-
-      <div className="relative z-10 flex flex-col items-center gap-12">
-        {/* Header with signature 2-tone Title format */}
-        <div className="text-center px-6 space-y-3">
-          <span className="inline-flex items-center rounded-full border border-orange-200/80 bg-orange-50 px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-[0.25em] text-orange-600 shadow-sm">
+      <div className="relative z-10 flex flex-col items-center gap-12 w-full">
+        {/* Header */}
+        <div className="text-center px-6 space-y-3 font-space max-w-4xl mx-auto">
+          <span className="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#3B82F6] shadow-sm">
             ✦ Core Technologies
           </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-            <span className="text-gray-900">Powering Modern </span>
-            <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+            <span>Powering Modern </span>
+            <span className="text-[#3B82F6]">
               Web Products
             </span>
           </h2>
 
-          <p className="max-w-2xl text-gray-600 text-base sm:text-lg leading-relaxed mx-auto font-light">
+          <p className="max-w-2xl text-slate-600 text-base sm:text-lg leading-relaxed mx-auto font-sans font-normal">
             Modern technologies used to build scalable websites, enterprise portals, SaaS platforms, and high-performance digital products.
           </p>
         </div>
 
-        {/* Marquee Rows */}
-        <div
-          className="relative w-full overflow-hidden"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          }}
-        >
+        {/* 100% Full-Width Marquee Rows */}
+        <div className="relative w-full overflow-hidden">
+          {/* Side Fade Overlays */}
+          <div className="pointer-events-none absolute top-0 left-0 w-28 h-full bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute top-0 right-0 w-28 h-full bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-20" />
+
           {/* Row 1 */}
-          <div className="group overflow-hidden">
-            <div className="flex gap-6 pt-5 animate-marquee group-hover:[animation-play-state:paused]">
-              {[...rowA, ...rowA].map((item, index) => (
+          <div className="group overflow-hidden w-full">
+            <div className="flex gap-6 pt-3 pb-3 animate-marquee group-hover:[animation-play-state:paused] w-max">
+              {[...rowA, ...rowA, ...rowA].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 rounded-2xl border border-orange-100/90 bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-orange-100/60 cursor-pointer"
+                  className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-md shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:border-[#3B82F6] hover:shadow-xl cursor-pointer shrink-0"
                 >
                   <div className="text-2xl">{icons[item.icon]}</div>
-                  <span className="font-semibold text-gray-800 text-sm">
+                  <span className="font-bold text-slate-800 text-sm font-sans tracking-wide">
                     {item.name}
                   </span>
                 </div>
@@ -152,15 +145,15 @@ export default function Marquee() {
           </div>
 
           {/* Row 2 */}
-          <div className="group overflow-hidden mt-6">
-            <div className="flex gap-6 pt-5 animate-marquee-reverse group-hover:[animation-play-state:paused]">
-              {[...rowB, ...rowB].map((item, index) => (
+          <div className="group overflow-hidden mt-4 w-full">
+            <div className="flex gap-6 pt-3 pb-3 animate-marquee-reverse group-hover:[animation-play-state:paused] w-max">
+              {[...rowB, ...rowB, ...rowB].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 rounded-2xl border border-orange-100/90 bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-amber-100/60 cursor-pointer"
+                  className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-md shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:border-[#06B6D4] hover:shadow-xl cursor-pointer shrink-0"
                 >
                   <div className="text-2xl">{icons[item.icon]}</div>
-                  <span className="font-semibold text-gray-800 text-sm">
+                  <span className="font-bold text-slate-800 text-sm font-sans tracking-wide">
                     {item.name}
                   </span>
                 </div>
@@ -169,6 +162,6 @@ export default function Marquee() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
