@@ -71,11 +71,10 @@ function LaptopScrollingPreview() {
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase transition ${
-              activeTab === key
+            className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase transition ${activeTab === key
                 ? "bg-[#3B82F6] text-white shadow-sm"
                 : "bg-[#111827] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#334155]"
-            }`}
+              }`}
           >
             {key}
           </button>

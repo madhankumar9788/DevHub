@@ -68,11 +68,10 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-[#0B1120]/90 border-b border-[#334155] backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-3"
           : "bg-[#0B1120]/40 backdrop-blur-sm border-b border-transparent py-5"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
         {/* Logo */}
@@ -89,9 +88,8 @@ export default function Navbar() {
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => scrollTo(e, item.id)}
-                className={`relative text-sm font-medium transition-colors py-1 ${
-                  isActive ? "text-[#F8FAFC]" : "text-[#94A3B8] hover:text-[#3B82F6]"
-                }`}
+                className={`relative text-sm font-medium transition-colors py-1 ${isActive ? "text-[#F8FAFC]" : "text-[#94A3B8] hover:text-[#3B82F6]"
+                  }`}
               >
                 {item.label}
                 {isActive && (
